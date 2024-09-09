@@ -1,6 +1,6 @@
 import { unRefElement } from '../unrefElement'
-import type { Fn, Arrayable, MaybeRefOrGetter, AnyFn } from '@vueuse/shared'
-import { noop, toValue, tryOnScopeDispose } from '@vueuse/shared'
+import type { Fn, Arrayable, MaybeRefOrGetter, AnyFn } from '@mini-vueuse/shared'
+import { noop, toValue, tryOnScopeDispose } from '@mini-vueuse/shared'
 import { watch } from 'vue'
 import { defaultWindow } from '../_configurable'
 

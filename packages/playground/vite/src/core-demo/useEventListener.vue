@@ -1,10 +1,10 @@
 <template>
-  <div @click="handleClick">1</div>
+  <div @click="handleClick">useEventListener</div>
 </template>
   
-<script lang='ts'>
+<script lang='ts' setup>
 
-  import { useEventListener } from '@vueuse/core'
+  import { useEventListener } from '@mini-vueuse/core'
   const handleClick = () => {
     console.log('clicked');
   }

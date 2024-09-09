@@ -1,1 +1,5 @@
 export * from './useEventListener'
+export * from './useMounted'
+export * from './useSupported'
+export * from './useMemory'
+export * from './useMouse'

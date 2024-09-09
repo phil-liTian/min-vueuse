@@ -1,7 +1,7 @@
 import { describe, expect, it, vi, beforeEach } from 'vitest'
 import type { MockInstance } from 'vitest'
 import { useEventListener } from './'
-import { Fn, noop } from '@vueuse/shared'
+import { Fn, noop } from '@mini-vueuse/shared'
 import { effectScope, nextTick, ref, Ref } from 'vue'
 
 

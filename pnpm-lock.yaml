@@ -8,7 +8,10 @@ importers:
 
   .:
     dependencies:
-      '@vueuse/core':
+      '@mini-vueuse/components':
+        specifier: workspace:*
+        version: link:packages/components
+      '@mini-vueuse/core':
         specifier: workspace:*
         version: link:packages/core
       jsdom:
@@ -21,11 +24,15 @@ importers:
         specifier: ^3.5.3
         version: 3.5.3
 
+  packages/components: {}
+
   packages/core:
     devDependencies:
-      '@vueuse/shared':
+      '@mini-vueuse/shared':
         specifier: workspace:*
         version: link:../shared
+
+  packages/math: {}
 
   packages/shared: {}
 

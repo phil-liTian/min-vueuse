@@ -1,4 +1,4 @@
-import { toValue } from "@vueuse/shared/toValue";
+import { toValue } from "@mini-vueuse/shared/toValue";
 import type { ComponentPublicInstance, MaybeRefOrGetter } from 'vue'
 
 type VueInstance = ComponentPublicInstance
