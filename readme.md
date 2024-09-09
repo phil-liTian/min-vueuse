@@ -8,13 +8,20 @@
 3. useMemory // Performance中的的memory对象, 获取当前性能相关数据
 4. useIntervalFn // 实现setInterval, 返回一个pausable对象, 可暂停、可恢复、可立即执行
 6. useMouse // 获取当前坐标位置（兼容移动端场景）; 可用组件形式使用
-
+7. useTitle // 动态更新document.title
 ```
 
 ### 已实现的components有:
 
 ```js
 1. UseMouse
+```
+
+### math
+
+```js
+1. useMax
+2. useMin
 ```
 
 
@@ -30,3 +37,27 @@
 ```js
 1. promiseTimeout // 延时执行任务
 ```
+
+传感器
+1. onClickOutside
+2. onKeyStroke
+3. onLongPress
+4. onStartTyping
+5. useBattery
+6. useDeviceMotion
+7. useDeviceOrientation
+8. useDevicePixelRatio
+9. useDevicesList
+10. useDisplayMedia
+
+
+时间
+1. useDateFormat
+2. useTimeAgo
+
+数学
+1. createGenericProjection
+2. createProjection
+3. logicAnd
+4. logicNot
+4. logicOr

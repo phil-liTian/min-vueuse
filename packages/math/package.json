@@ -1,5 +1,5 @@
 {
-  "name": "math",
+  "name": "@mini-vueuse/math",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
