@@ -4,18 +4,15 @@ import { noop, toValue, tryOnScopeDispose } from '@mini-vueuse/shared'
 import { watch } from 'vue'
 import { defaultWindow } from '../_configurable'
 
+export interface InferEventTarget<T> {
+  addEvenetListner: (event: T, fn?: AnyFn, options?: AddEventListenerOptions) => any
+  removeEvenetListner: (event: T, fn?: AnyFn, options?: AddEventListenerOptions) => any
+}
 
 export function useEventListener<E extends keyof WindowEventMap>(
   events: Arrayable<E>, 
   listeners: Arrayable<Function>,
   options: MaybeRefOrGetter<AddEventListenerOptions | boolean>,
-): Fn
-
-export function useEventListener<E extends keyof WindowEventMap>(
-  target: Window | DocumentOrShadowRoot | HTMLDivElement, 
-  event: Arrayable<E>, 
-  listener: Arrayable<AnyFn>, 
-  options?: MaybeRefOrGetter
 ): Fn
 
 export function useEventListener<E extends keyof WindowEventMap>(
@@ -25,11 +22,12 @@ export function useEventListener<E extends keyof WindowEventMap>(
 ): Fn
 
 export function useEventListener<Names extends string>(
-  target: Window | DocumentOrShadowRoot | HTMLDivElement | null | MaybeRefOrGetter<HTMLElement | null>,
-  event: Arrayable<Names>, 
-  listener: Arrayable<AnyFn>, 
-  options?: MaybeRefOrGetter
+  target: MaybeRefOrGetter<InferEventTarget<Names> | null | undefined>,
+  events: Arrayable<Names>,
+  listener: Arrayable<AnyFn>,
+  options?: MaybeRefOrGetter<boolean | AddEventListenerOptions>
 ): Fn
+
 
 export function useEventListener(...args: any[]): Fn {
   let target: MaybeRefOrGetter<EventTarget> | undefined | null;
