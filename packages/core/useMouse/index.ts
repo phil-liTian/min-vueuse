@@ -1,4 +1,5 @@
+import { ref } from 'vue'
 
-export const test = () => {
-  console.log('hello vueuse');
+export function useMouse() {
+
 }

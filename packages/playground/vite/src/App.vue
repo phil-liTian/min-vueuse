@@ -1,11 +1,12 @@
 
 <template>
-  <div>app</div>
+  <div>
+    <useEventListener />
+  </div>
 </template>
   
 <script lang='ts' setup>
-  import { test } from '@vueuse/core'
-  test()
+  import useEventListener from "./core-demo/useEventListener.vue";
 </script>
   
 <style lang='less' scoped>

@@ -1,0 +1,225 @@
+import { describe, expect, it, vi, beforeEach } from 'vitest'
+import type { MockInstance } from 'vitest'
+import { useEventListener } from './'
+import { Fn, noop } from '@vueuse/shared'
+import { effectScope, nextTick, ref, Ref } from 'vue'
+
+
+describe('useEventListener', () => {
+  let options = { capture: true }
+  let target: HTMLDivElement
+  let removeSpy: MockInstance
+  let addSpy: MockInstance
+  let stop: Fn
+
+  beforeEach(() => {
+    target = document.createElement('div')
+    addSpy = vi.spyOn(target, 'addEventListener')
+    removeSpy = vi.spyOn(target, 'removeEventListener')
+  })
+
+  it('should be defined', () => {
+    expect(useEventListener).toBeDefined()
+  })
+
+  describe('given both noon array', () => {
+    const listener = vi.fn()
+    const event = 'click'
+
+    beforeEach(() => {
+      listener.mockClear()
+      stop = useEventListener(target, event, listener, options)
+    })
+
+    it('should add listener', () => {
+      expect(addSpy).toBeCalledTimes(1)
+    })
+
+    it('should trigger event', () => {
+      expect(listener).not.toBeCalled()
+      target.dispatchEvent(new MouseEvent(event))
+      expect(listener).toBeCalledTimes(1)
+    })
+
+    it('should remove listener', () => {
+      expect(removeSpy).not.toBeCalled()
+      stop()
+      expect(removeSpy).toBeCalledTimes(1)
+      expect(removeSpy).toBeCalledWith(event, listener, options)
+    })
+
+  })
+
+
+  describe('given array of events but single listener', () => {
+    const listener = vi.fn()
+    const events = ['click', 'mouseover']
+
+    beforeEach(() => {
+      listener.mockClear()
+      stop = useEventListener(target, events, listener, options)
+    })
+
+    it('should add listener for all events', () => {
+      events.map(event => expect(addSpy).toBeCalledWith(event, listener, options))
+    })
+
+    it('should trigger event with all events', () => {
+      expect(listener).not.toBeCalled()
+      events.forEach((event, index) => {
+        target.dispatchEvent(new MouseEvent(event))
+        expect(listener).toBeCalledTimes(index + 1)
+      })
+    })
+
+    it('should remove listener with all events', () => {
+      expect(removeSpy).not.toBeCalled()
+      stop()
+      expect(removeSpy).toBeCalledTimes(events.length)
+      events.map(event => expect(removeSpy).toBeCalledWith(event, listener, options))
+    })
+  })
+
+  describe('given single event but array of listeners', () => {
+    const listeners = [vi.fn(), vi.fn()]
+    const event = 'click'
+    beforeEach(() => {
+      listeners.forEach(listener => listener.mockReset())
+      stop = useEventListener(target, event, listeners, options)
+    })
+    it('should add all Listeners', () => {
+      listeners.forEach(listener => expect(addSpy).toBeCalledWith(event, listener, options))
+    })
+
+    it('should call all listeners with single click event', () => {
+      listeners.forEach(listener => expect(listener).not.toBeCalled())
+  
+      target.dispatchEvent(new Event(event))
+  
+      listeners.forEach(listener => expect(listener).toBeCalledTimes(1))
+    })
+
+    it('should remove listeners', () => {
+      expect(removeSpy).not.toBeCalled()
+
+      stop()
+      expect(removeSpy).toBeCalledTimes(listeners.length)
+      listeners.forEach(listener => expect(removeSpy).toBeCalledWith(event, listener, options))
+    })
+  })
+
+  describe('given both array of events and listeners', () => {
+    const listeners = [vi.fn(), vi.fn(), vi.fn()]
+    const events = ['click', 'scroll', 'blur', 'resize', 'custom-event']
+
+    beforeEach(() => {
+      listeners.forEach(listener => listener.mockReset())
+      stop = useEventListener(target, events, listeners, options)
+    })
+
+    it('should add all listeners for all events', () => {
+      listeners.forEach((listener) => {
+        events.forEach((event) => {
+          expect(addSpy).toBeCalledWith(event, listener, options)
+        })
+      })
+    })
+
+    it('should call all listeners with all events', () => {
+      events.forEach((event, index) => {
+        target.dispatchEvent(new Event(event))
+        listeners.forEach(listener => expect(listener).toBeCalledTimes(index + 1))
+      })
+    })
+
+    it('should remove all listeners with all events', () => {
+      stop()
+
+      listeners.forEach((listener) => {
+        events.forEach((event) => {
+          expect(removeSpy).toBeCalledWith(event, listener, options)
+        })
+      })
+    })
+  })
+
+  describe('multiple events', () => {
+    let target: Ref<HTMLDivElement | null>
+    let listener: () => any
+
+    beforeEach(() => {
+      target = ref(document.createElement('div'))
+      listener = vi.fn()
+    })
+
+    it('should not listen when target is invalid', async () => {
+      useEventListener(target, 'click', listener)
+      const el = target.value
+      target.value = null
+      await nextTick()
+      el?.dispatchEvent(new MouseEvent('click'))
+      await nextTick()
+
+      expect(listener).toHaveBeenCalledTimes(0)
+      // expect(useEventListener(null, 'click', listener)).toBe(noop)
+    })
+
+    function getTargetName(useTarget: boolean) {
+      return useTarget ? 'element' : 'window'
+    }
+
+    function getArgs(useTarget: boolean) {
+      return (useTarget ? [target, 'click', listener] : ['click', listener])
+    }
+    
+    function trigger(useTarget: boolean) {
+      (useTarget ? target.value : window)!.dispatchEvent(new MouseEvent('click'))
+    }
+    
+    function testTarget(useTarget: boolean) {
+      it(`should ${getTargetName(useTarget)} listen event`, async () => {
+        // @ts-expect-error mock different args
+        const stop = useEventListener(...getArgs(useTarget))
+
+        trigger(useTarget)
+
+        await nextTick()
+
+        expect(listener).toHaveBeenCalledTimes(1)
+      })
+
+      it(`should ${getTargetName(useTarget)} manually stop listening event`, async () => {
+        // @ts-expect-error mock different args
+        const stop = useEventListener(...getArgs(useTarget))
+
+        stop()
+
+        trigger(useTarget)
+
+        await nextTick()
+
+        expect(listener).toHaveBeenCalledTimes(0)
+      })
+
+      it(`should ${getTargetName(useTarget)} auto stop listening event`, async () => {
+        const scope = effectScope()
+        await scope.run(async () => {
+        // @ts-expect-error mock different args
+          useEventListener(...getArgs(useTarget))
+        })
+
+        await scope.stop()
+
+        trigger(useTarget)
+
+        await nextTick()
+
+        expect(listener).toHaveBeenCalledTimes(0)
+      })
+    }
+
+    testTarget(false)
+    // testTarget(true)
+  })
+
+})
