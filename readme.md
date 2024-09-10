@@ -13,13 +13,21 @@
 9. onClickOutside // 点击当前el之外的区域（hooks、component、directive）
 10. onKeyStroke // 监听键盘事件, 只有触发特定的key才触发回调函数(hook、directive)
 11. onStartTyping // 监听键盘事件, 处理可编辑html标签, 只有元素可编辑且键盘点击1-9、a-z、A-Z才可触发回调
-12. 
 ```
 
 ### 已实现的components有:
 
 ```js
 1. UseMouse
+2. onClickOutside
+3. useBattery
+```
+
+### 已实现的自定义指令
+
+```js
+1. vOnClickOutside
+2. vOnKeyStroke
 ```
 
 ### math
