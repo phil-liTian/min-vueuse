@@ -42,8 +42,6 @@ export function useMouse(options: UseMouseOptions = {}) {
   const extractor = typeof type === 'function' ? type : UseMouseBuiltinExtractors[type]
 
   function reset() {
-    console.log('reset');
-    
     x.value = initialValue.x
     y.value = initialValue.y
   }

@@ -1,2 +1,5 @@
 export * from '../core/useMouse/component'
 export * from '../core/useBattery/component'
+export * from '../core/onClickOutside/component'
+export * from '../core/onClickOutside/directive'
+export * from '../core/onKeyStroke/directive'

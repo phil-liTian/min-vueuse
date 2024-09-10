@@ -46,6 +46,7 @@ export function useEventListener(...args: any[]): Fn {
   if (!target) {
     return noop
   }
+  
 
   // 可一次注册多个事件
   if ( !Array.isArray(events) ) {

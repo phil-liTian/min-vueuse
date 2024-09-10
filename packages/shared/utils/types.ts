@@ -10,6 +10,8 @@ export type MaybeRef<T = any> = T | Ref<T> | ShallowRef<T> | WritableComputedRef
 
 export type MaybeRefOrGetter<T = any> = MaybeRef<T> | ComputedRef<T> | (() => T)
 
+export type ReadonlyRefOrGetter<T> = ComputedRef<T> | (() => T)
+
 
 export interface Pausable {
   isActive: Ref<boolean>;

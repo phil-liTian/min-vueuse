@@ -3,17 +3,29 @@
   <div>
     <!-- core -->
      <h4>core</h4>
-    <useEventListener />
+    <!-- <useEventListener />
     <useMounted />
     <useMemory />
     <useMouse />
+    <useBattery /> -->
     <useTitle />
-    <useBattery />
 
     <!-- math -->
-     <h4>math</h4>
+     <!-- <h4>math</h4>
     <useMax />
-    <useMin />
+    <useMin /> -->
+
+    <h4>sensor</h4>
+    <onClickOutside />
+    <onKeyStroke />
+    <onStartTyping />
+
+    <h4>watch</h4>
+    <whenever />
+
+    <h4>date</h4>
+    <useDateFormat />
+    <useTimeAgo />
   </div>
 </template>
   
@@ -28,6 +40,19 @@
   // math
   import useMax from './math-demo/useMax.vue'
   import useMin from "./math-demo/useMin.vue";
+
+  // sensor
+  import onClickOutside from "./sensor-demo/onClickOutside.vue";
+  import onKeyStroke from "./sensor-demo/onKeyStroke.vue";
+  import useLongPress from "./sensor-demo/useLongPress.vue";
+  import onStartTyping from "./sensor-demo/onStartTyping.vue";
+
+  // watch
+  import whenever from "./watch-demo/whenever.vue";
+
+  // date
+  import useDateFormat from "./date-demo/useDateFormat.vue";
+  import useTimeAgo from "./date-demo/useTimeAgo.vue";
 </script>
   
 <style lang='less' scoped>

@@ -9,6 +9,11 @@
 4. useIntervalFn // 实现setInterval, 返回一个pausable对象, 可暂停、可恢复、可立即执行
 6. useMouse // 获取当前坐标位置（兼容移动端场景）; 可用组件形式使用
 7. useTitle // 动态更新document.title
+8. useBattery // 获取当前电池状态
+9. onClickOutside // 点击当前el之外的区域（hooks、component、directive）
+10. onKeyStroke // 监听键盘事件, 只有触发特定的key才触发回调函数(hook、directive)
+11. onStartTyping // 监听键盘事件, 处理可编辑html标签, 只有元素可编辑且键盘点击1-9、a-z、A-Z才可触发回调
+12. 
 ```
 
 ### 已实现的components有:
@@ -32,32 +37,22 @@
 2. toValue // 将ref对象或者函数转化为value
 ```
 
+### 处理时间格式
+
+```js
+1. useDateFormat // 实现dayjs中时间格式化功能
+```
+
+### watch 监视
+
+```js
+1. whenever // 当监听属性为true时 触发回调函数
+```
+
 ### 使用vitest进行测试
 
 ```js
 1. promiseTimeout // 延时执行任务
+2. mount
+3. useSetup
 ```
-
-传感器
-1. onClickOutside
-2. onKeyStroke
-3. onLongPress
-4. onStartTyping
-5. useBattery
-6. useDeviceMotion
-7. useDeviceOrientation
-8. useDevicePixelRatio
-9. useDevicesList
-10. useDisplayMedia
-
-
-时间
-1. useDateFormat
-2. useTimeAgo
-
-数学
-1. createGenericProjection
-2. createProjection
-3. logicAnd
-4. logicNot
-4. logicOr
