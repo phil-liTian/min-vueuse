@@ -1,2 +1,6 @@
 export * from './useMax/index'
 export * from './useMin/index'
+export * from './useCeil'
+export * from './useFloor'
+export * from './useTrunc'
+export * from './useAbs'

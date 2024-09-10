@@ -35,6 +35,10 @@
 ```js
 1. useMax
 2. useMin
+3. useTrunc
+4. useCeil
+5. useFloor
+6. useAbs
 ```
 
 

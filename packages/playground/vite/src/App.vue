@@ -11,11 +11,15 @@
     <useTitle />
 
     <!-- math -->
-     <!-- <h4>math</h4>
+     <h4>math</h4>
     <useMax />
-    <useMin /> -->
+    <useMin />
+    <useTrunc />
+    <useCeil />
+    <useFloor />
+    <useAbs />
 
-    <h4>sensor</h4>
+    <!-- <h4>sensor</h4>
     <onClickOutside />
     <onKeyStroke />
     <onStartTyping />
@@ -25,7 +29,7 @@
 
     <h4>date</h4>
     <useDateFormat />
-    <useTimeAgo />
+    <useTimeAgo /> -->
   </div>
 </template>
   
@@ -40,6 +44,10 @@
   // math
   import useMax from './math-demo/useMax.vue'
   import useMin from "./math-demo/useMin.vue";
+  import useTrunc from "./math-demo/useTrunc.vue";
+  import useCeil from "./math-demo/useCeil.vue";
+  import useFloor from "./math-demo/useFloor.vue";
+  import useAbs from "./math-demo/useAbs.vue";
 
   // sensor
   import onClickOutside from "./sensor-demo/onClickOutside.vue";
