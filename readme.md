@@ -13,14 +13,19 @@
 9. onClickOutside // 点击当前el之外的区域（hooks、component、directive）
 10. onKeyStroke // 监听键盘事件, 只有触发特定的key才触发回调函数(hook、directive)
 11. onStartTyping // 监听键盘事件, 处理可编辑html标签, 只有元素可编辑且键盘点击1-9、a-z、A-Z才可触发回调
+12. useNetwork // 用于获取当前网络状态
+13. useRafFn // 使用requestAnimationFrame优化setInterval性能, 返回Pausable对象 可中断、可恢复
+14. useNow // 轮询获取当前时间
+15. useTimeAgo // 获取某个时间距另一时间的间隔 返回Pausable对象 可中断、可恢复
 ```
 
 ### 已实现的components有:
 
 ```js
 1. UseMouse
-2. onClickOutside
-3. useBattery
+2. OnClickOutside
+3. UseBattery
+4. UseTimeAgo
 ```
 
 ### 已实现的自定义指令
@@ -40,7 +45,6 @@
 5. useFloor
 6. useAbs
 ```
-
 
 ### 工具方法总结
 

@@ -2,34 +2,40 @@
 <template>
   <div>
     <!-- core -->
-     <h4>core</h4>
-    <!-- <useEventListener />
+     <!-- <h4>core</h4>
+    <useEventListener />
     <useMounted />
     <useMemory />
     <useMouse />
-    <useBattery /> -->
+    <useBattery />
     <useTitle />
+    <useNetwork /> -->
+    <useNow />
 
     <!-- math -->
-     <h4>math</h4>
+     <!-- <h4>math</h4>
     <useMax />
     <useMin />
     <useTrunc />
     <useCeil />
     <useFloor />
-    <useAbs />
+    <useAbs /> -->
 
     <!-- <h4>sensor</h4>
     <onClickOutside />
     <onKeyStroke />
-    <onStartTyping />
+    <onStartTyping /> -->
 
     <h4>watch</h4>
     <whenever />
+    <watchArray />
 
     <h4>date</h4>
     <useDateFormat />
-    <useTimeAgo /> -->
+    <useTimeAgo />
+
+    <!-- <h4>动画</h4>
+    <useRafFn /> -->
   </div>
 </template>
   
@@ -40,6 +46,11 @@
   import useMouse from "./core-demo/useMouse.vue";
   import useTitle from "./core-demo/useTitle.vue";
   import useBattery from "./core-demo/useBattery.vue";
+  import useNetwork from "./core-demo/useNetwork.vue";
+  import useNow from "./core-demo/useNow.vue";
+
+  // 动画
+  import useRafFn from "./core-demo/useRafFn.vue";
 
   // math
   import useMax from './math-demo/useMax.vue'
@@ -57,6 +68,7 @@
 
   // watch
   import whenever from "./watch-demo/whenever.vue";
+  import watchArray from "./watch-demo/watchArray.vue";
 
   // date
   import useDateFormat from "./date-demo/useDateFormat.vue";
