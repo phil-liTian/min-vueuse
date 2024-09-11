@@ -11,6 +11,7 @@
     <useTitle />
     <useNetwork /> -->
     <useNow />
+    <useToggle />
 
     <!-- math -->
      <!-- <h4>math</h4>
@@ -36,6 +37,11 @@
 
     <!-- <h4>动画</h4>
     <useRafFn /> -->
+
+    <h4>状态</h4>
+    <createGlobalState />
+    <test />
+
   </div>
 </template>
   
@@ -48,6 +54,7 @@
   import useBattery from "./core-demo/useBattery.vue";
   import useNetwork from "./core-demo/useNetwork.vue";
   import useNow from "./core-demo/useNow.vue";
+  import useToggle from "./core-demo/useToggle.vue";
 
   // 动画
   import useRafFn from "./core-demo/useRafFn.vue";
@@ -73,6 +80,10 @@
   // date
   import useDateFormat from "./date-demo/useDateFormat.vue";
   import useTimeAgo from "./date-demo/useTimeAgo.vue";
+
+  // state
+  import createGlobalState from "./state-demo/createGlobalState.vue";
+  import test from "./state-demo/test.vue";
 </script>
   
 <style lang='less' scoped>

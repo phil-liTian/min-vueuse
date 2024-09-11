@@ -1,6 +1,6 @@
-## 目的: 理解vueuse/core的源码思路。整个系统基于vitest实现测试流程, 采用ts实现, 是对vueuse/core、vueuse/shared和vueuse/components核心api的具体实现。
-  
-### 已实现的hooks有:
+### 目的: 理解vueuse/core的源码思路。整个系统基于vitest实现测试流程, 采用ts实现, 是对vueuse/core、vueuse/shared和vueuse/components核心api的具体实现。
+
+#### 已实现的hooks有:
 
 ```js 
 1. useEventListener // 实现事件监听
@@ -17,9 +17,12 @@
 13. useRafFn // 使用requestAnimationFrame优化setInterval性能, 返回Pausable对象 可中断、可恢复
 14. useNow // 轮询获取当前时间
 15. useTimeAgo // 获取某个时间距另一时间的间隔 返回Pausable对象 可中断、可恢复
+16. watchArray // 监听数组, 与原始watch不同的是 监听数组返回新增和删除的元素
+17. createGlobalState // 创建一个全局可监听的状态, 可以有事件、状态；可以跨vue组件使用
+18. useToggle // 实现状态切换, 支持自定义truthyValue/falsyValue
 ```
 
-### 已实现的components有:
+#### 已实现的components有:
 
 ```js
 1. UseMouse
@@ -28,14 +31,14 @@
 4. UseTimeAgo
 ```
 
-### 已实现的自定义指令
+#### 已实现的自定义指令
 
 ```js
 1. vOnClickOutside
 2. vOnKeyStroke
 ```
 
-### math
+#### math
 
 ```js
 1. useMax
@@ -46,26 +49,28 @@
 6. useAbs
 ```
 
-### 工具方法总结
+#### 工具方法总结
 
 ```js
 1. tryOnScopeDispose // 清除effectScope中的副作用
 2. toValue // 将ref对象或者函数转化为value
+3. get // 丰富unRef的功能
+4. set // set ref、reactive value
 ```
 
-### 处理时间格式
+#### 处理时间格式
 
 ```js
 1. useDateFormat // 实现dayjs中时间格式化功能
 ```
 
-### watch 监视
+#### watch 监视
 
 ```js
 1. whenever // 当监听属性为true时 触发回调函数
 ```
 
-### 使用vitest进行测试
+#### 使用vitest进行测试
 
 ```js
 1. promiseTimeout // 延时执行任务
