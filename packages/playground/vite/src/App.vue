@@ -2,16 +2,20 @@
 <template>
   <div>
     <!-- core -->
-     <!-- <h4>core</h4>
-    <useEventListener />
+     <h4>core</h4>
+    <!-- <useEventListener />
     <useMounted />
     <useMemory />
     <useMouse />
     <useBattery />
     <useTitle />
-    <useNetwork /> -->
+    <useNetwork />
     <useNow />
-    <useToggle />
+    <useToggle /> -->
+    <useCloned />
+    <useManualRefHistory />
+    <useRefHistory />
+
 
     <!-- math -->
      <!-- <h4>math</h4>
@@ -27,20 +31,20 @@
     <onKeyStroke />
     <onStartTyping /> -->
 
-    <h4>watch</h4>
+    <!-- <h4>watch</h4>
     <whenever />
-    <watchArray />
+    <watchArray /> -->
 
-    <h4>date</h4>
+    <!-- <h4>date</h4>
     <useDateFormat />
-    <useTimeAgo />
+    <useTimeAgo /> -->
 
     <!-- <h4>动画</h4>
     <useRafFn /> -->
 
-    <h4>状态</h4>
+    <!-- <h4>状态</h4>
     <createGlobalState />
-    <test />
+    <test /> -->
 
   </div>
 </template>
@@ -55,6 +59,9 @@
   import useNetwork from "./core-demo/useNetwork.vue";
   import useNow from "./core-demo/useNow.vue";
   import useToggle from "./core-demo/useToggle.vue";
+  import useCloned from "./core-demo/useCloned.vue";
+  import useManualRefHistory from "./core-demo/useManualRefHistory.vue";
+  import useRefHistory from "./core-demo/useRefHistory.vue";
 
   // 动画
   import useRafFn from "./core-demo/useRafFn.vue";

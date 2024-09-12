@@ -12,6 +12,8 @@ export type MaybeRefOrGetter<T = any> = MaybeRef<T> | ComputedRef<T> | (() => T)
 
 export type ReadonlyRefOrGetter<T> = ComputedRef<T> | (() => T)
 
+export type ArgumentsType<T> = T extends (...args: infer U) => any ? U : never
+
 
 export interface Pausable {
   isActive: Ref<boolean>;
