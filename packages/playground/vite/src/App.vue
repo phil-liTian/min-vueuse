@@ -15,6 +15,7 @@
     <useCloned />
     <useManualRefHistory />
     <useRefHistory />
+    <useFps />
 
 
     <!-- math -->
@@ -46,6 +47,9 @@
     <createGlobalState />
     <test /> -->
 
+    <h4>array</h4>
+    <useArrayEvery />
+
   </div>
 </template>
   
@@ -62,6 +66,7 @@
   import useCloned from "./core-demo/useCloned.vue";
   import useManualRefHistory from "./core-demo/useManualRefHistory.vue";
   import useRefHistory from "./core-demo/useRefHistory.vue";
+  import useFps from "./core-demo/useFps.vue";
 
   // 动画
   import useRafFn from "./core-demo/useRafFn.vue";
@@ -91,6 +96,9 @@
   // state
   import createGlobalState from "./state-demo/createGlobalState.vue";
   import test from "./state-demo/test.vue";
+
+  // array
+  import useArrayEvery from "./array-demo/useArrayEvery.vue";
 </script>
   
 <style lang='less' scoped>

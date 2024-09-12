@@ -24,6 +24,7 @@
 20. useManualRefHistory // 手动记录ref的更新状态(commit) redo撤销 redo撤销上一次撤销(回退) 使用redoStack、undoStack分别的记录撤销和回退的数组 可使用clear清空 last为当前ref, reset可回退到上一个commit的ref状态
 21. watchIgnorable // 监听属性变化, 可忽视部分ref更新, ignoreUpdates回调函数中的trigger会被忽略 分sync和非sync两种情况处理
 22. useRefHistory // watchIgnorable和useManualRefHistory 的综合体，可中断、可恢复. batch处理很妙！结合ignoreUpdates和canceled变量实现 只更新一次。使用函数穿参, 实现可0次update。
+23. useFps // 计算当前页面渲染的帧率
 ```
 
 #### 已实现的components有:
@@ -51,6 +52,12 @@
 4. useCeil
 5. useFloor
 6. useAbs
+```
+
+#### array
+
+```js
+1. useArrayEvery // 处理响应式数组, 返回computedRef<boolean>
 ```
 
 #### 工具方法总结
