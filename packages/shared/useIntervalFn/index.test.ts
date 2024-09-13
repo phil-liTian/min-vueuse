@@ -1,5 +1,5 @@
 import { describe, vi, it, expect, beforeEach } from 'vitest'
-import { promiseTimeout } from '../utils/inedx'
+import { promiseTimeout } from '../utils'
 import { Pausable } from '../utils/types'
 import { useIntervalFn } from '.'
 import { effectScope, ref } from 'vue'

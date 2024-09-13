@@ -15,6 +15,9 @@ export type ReadonlyRefOrGetter<T> = ComputedRef<T> | (() => T)
 export type ArgumentsType<T> = T extends (...args: infer U) => any ? U : never
 
 
+export type Promisify<T> = Promise<T>
+
+
 export interface Pausable {
   isActive: Ref<boolean>;
   pause: Fn;

@@ -1,6 +1,7 @@
 export * from './types'
 export * from './is'
 export * from './compatibility'
+export * from './filters'
 
 export function promiseTimeout(ms: number, throwOnTimeout: boolean = false, reason = 'Timeout' ): Promise<void> {
   return new Promise((resolve, reject) => {

@@ -11,11 +11,15 @@
     <useTitle />
     <useNetwork />
     <useNow />
-    <useToggle /> -->
+    <useToggle />
     <useCloned />
     <useManualRefHistory />
     <useRefHistory />
-    <useFps />
+    <useFps /> -->
+    <useDebounceFn />
+    <watchWithFilter />
+    <watchDebounced />
+    <refDebounce />
 
 
     <!-- math -->
@@ -47,8 +51,8 @@
     <createGlobalState />
     <test /> -->
 
-    <h4>array</h4>
-    <useArrayEvery />
+    <!-- <h4>array</h4>
+    <useArrayEvery /> -->
 
   </div>
 </template>
@@ -67,6 +71,10 @@
   import useManualRefHistory from "./core-demo/useManualRefHistory.vue";
   import useRefHistory from "./core-demo/useRefHistory.vue";
   import useFps from "./core-demo/useFps.vue";
+  import useDebounceFn from "./core-demo/useDebounceFn.vue";
+  import watchWithFilter from "./core-demo/watchWithFilter.vue";
+  import watchDebounced from "./core-demo/watchDebounced.vue";
+  import refDebounce from "./core-demo/refDebounce.vue";
 
   // 动画
   import useRafFn from "./core-demo/useRafFn.vue";

@@ -1,6 +1,6 @@
 import { ref, watch, WatchStopHandle } from "vue"
 import { WatchWithFilterOptions } from "../watchWithFilter"
-import { Fn } from "../utils/inedx"
+import { Fn } from "../utils"
 import { byPassFilter, createFilterWrapper } from "../utils/filters"
 
 export type IgnoreUpdater = (updater: () => void) => void

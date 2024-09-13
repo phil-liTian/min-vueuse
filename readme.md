@@ -25,6 +25,10 @@
 21. watchIgnorable // 监听属性变化, 可忽视部分ref更新, ignoreUpdates回调函数中的trigger会被忽略 分sync和非sync两种情况处理
 22. useRefHistory // watchIgnorable和useManualRefHistory 的综合体，可中断、可恢复. batch处理很妙！结合ignoreUpdates和canceled变量实现 只更新一次。使用函数穿参, 实现可0次update。
 23. useFps // 计算当前页面渲染的帧率
+24. useDebounceFn // 返回一个防抖函数, 支持配置maxWait和rejectOnCancel
+25. watchWithFilter // 利用createFilterWrapper中eventFilter函数, 处理一个按条件执行的cb, eventFilter函数，可动态控制invoke是否执行
+26. watchDebounced // 将debounceFilter作为watchWithFilter中的eventFilter，实现防抖执行回调函数
+27. refDebounced // 监听source value,使用useDebounceFn来实现防抖更新ref
 ```
 
 #### 已实现的components有:
