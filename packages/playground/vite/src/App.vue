@@ -20,6 +20,8 @@
     <watchWithFilter />
     <watchDebounced />
     <refDebounce />
+    <tryOnBeforeMount />
+    <useVModel />
 
 
     <!-- math -->
@@ -75,6 +77,8 @@
   import watchWithFilter from "./core-demo/watchWithFilter.vue";
   import watchDebounced from "./core-demo/watchDebounced.vue";
   import refDebounce from "./core-demo/refDebounce.vue";
+  import tryOnBeforeMount from "./core-demo/tryOnBeforeMount.vue";
+  import useVModel from "./core-demo/useVModel(s).vue";
 
   // 动画
   import useRafFn from "./core-demo/useRafFn.vue";

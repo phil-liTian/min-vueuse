@@ -29,6 +29,12 @@
 25. watchWithFilter // 利用createFilterWrapper中eventFilter函数, 处理一个按条件执行的cb, eventFilter函数，可动态控制invoke是否执行
 26. watchDebounced // 将debounceFilter作为watchWithFilter中的eventFilter，实现防抖执行回调函数
 27. refDebounced // 监听source value,使用useDebounceFn来实现防抖更新ref
+28. tryOnBeforeMount // 安全onBeforeMount 安全钩子, 在非vue组件生命周期使用,直接执行cb
+29. tryOnMounted
+30. tryOnBeforeUnmount
+31. tryOnUnmounted
+32. useVModel // 实现双向绑定, 接受父级组件props, key, emit(vue组件实例上的emit), 配置项可配置事件名.对象可用passive实现
+33. useVModels // 实现一次绑定多个值, 返回一个toRefs类型的值, 可直接绑定一个对象, 实现的是各个元素的双向绑定的方法udpate:xxx
 ```
 
 #### 已实现的components有:
@@ -83,6 +89,8 @@
 
 ```js
 1. whenever // 当监听属性为true时 触发回调函数
+2. watchIgnore
+3. watchWithFilter
 ```
 
 #### 使用vitest进行测试

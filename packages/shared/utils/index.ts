@@ -1,3 +1,5 @@
+import { getCurrentInstance } from 'vue'
+
 export * from './types'
 export * from './is'
 export * from './compatibility'
@@ -11,4 +13,8 @@ export function promiseTimeout(ms: number, throwOnTimeout: boolean = false, reas
       setTimeout(resolve, ms)
     }
   })
+}
+
+export function getLifeCycleTarget(target?: any) {
+  return target || getCurrentInstance()
 }
