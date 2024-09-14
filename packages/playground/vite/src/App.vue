@@ -15,13 +15,17 @@
     <useCloned />
     <useManualRefHistory />
     <useRefHistory />
-    <useFps /> -->
+    <useFps />
     <useDebounceFn />
     <watchWithFilter />
     <watchDebounced />
     <refDebounce />
     <tryOnBeforeMount />
-    <useVModel />
+    <useVModel /> -->
+    <useThrottle />
+    <useCounter />
+    <useEventBus />
+    <useEventBusSib />
 
 
     <!-- math -->
@@ -79,6 +83,10 @@
   import refDebounce from "./core-demo/refDebounce.vue";
   import tryOnBeforeMount from "./core-demo/tryOnBeforeMount.vue";
   import useVModel from "./core-demo/useVModel(s).vue";
+  import useThrottle from "./core-demo/useThrottle.vue";
+  import useCounter from "./core-demo/useCounter.vue";
+  import useEventBus from "./core-demo/useEventBus.vue";
+  import useEventBusSib from "./core-demo/useEventBusSib.vue";
 
   // 动画
   import useRafFn from "./core-demo/useRafFn.vue";

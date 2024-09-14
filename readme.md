@@ -35,6 +35,12 @@
 31. tryOnUnmounted
 32. useVModel // 实现双向绑定, 接受父级组件props, key, emit(vue组件实例上的emit), 配置项可配置事件名.对象可用passive实现
 33. useVModels // 实现一次绑定多个值, 返回一个toRefs类型的值, 可直接绑定一个对象, 实现的是各个元素的双向绑定的方法udpate:xxx
+34. useThrottleFn // 返回一个节流函数, 在delay时间内执行一次, 计算lastExec上一次执行时间到当前时间的时间间隔是否大于ms,大于才执行
+35. watchThrottled // 监听source变化, 在throttle时间内最多执行一次, 结合createFilterWrapper实现
+36. refThrottled // 返回一个节流的ref, 监听这个ref的变化, 在delay时间内最多执行一次
+37. useThrottledRefHistory // 返回一个防抖的history, 记录ref变化快照，在throttle的时间内最多记录一次
+38. useCounter // 返回一个counter, 可指定其最大、最小值。
+39. useEventBus // 时间总线event bus, 可实现任意组件之间通讯。创建全局events map对象，on注册事件，off注销事件
 ```
 
 #### 已实现的components有:

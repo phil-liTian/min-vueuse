@@ -12,6 +12,12 @@ export interface DebounceFilterOptions {
   rejectOnCancel?: boolean
 }
 
+export interface ThrottleFilterOptions {
+  trailing?: boolean;
+
+  leading?: boolean
+}
+
 export interface FunctionWrapperOptions<Args extends any[] = any[], This = any> {
   fn: FunctionArgs<Args, This>,
   args: Args,
@@ -72,6 +78,11 @@ export function debounceFilter(ms: MaybeRefOrGetter<number>, options: DebounceFi
   let maxTimer: ReturnType<typeof setTimeout> | undefined | null
   let lastRejector: AnyFn = noop
 
+  function _clearTimeout(timer?: ReturnType<typeof setTimeout>) {
+    clearTimeout(timer)
+    lastRejector()
+    lastRejector = noop
+  }
   const filter: EventFilter = (invoke) => {
     const duration = toValue(ms)
     const maxDuration = toValue(options.maxWait)
@@ -79,12 +90,6 @@ export function debounceFilter(ms: MaybeRefOrGetter<number>, options: DebounceFi
     // key: 如果在这期间频繁触发, 如果之前还存在timer, 则此时的延时任务会被清空掉, 不再执行
     if ( timer ) {
       _clearTimeout(timer)
-    }
-    
-    function _clearTimeout(timer?: ReturnType<typeof setTimeout>) {
-      clearTimeout(timer)
-      lastRejector()
-      lastRejector = noop
     }
 
     return new Promise((resolve, reject) => {
@@ -111,3 +116,67 @@ export function debounceFilter(ms: MaybeRefOrGetter<number>, options: DebounceFi
 
   return filter
 }
+
+
+export function throttleFilter(ms: MaybeRefOrGetter<number>, options: ThrottleFilterOptions = {}) {
+
+  let timer: ReturnType<typeof setTimeout> | undefined
+  let lastExec = 0;
+  let lastValue: any
+  let isLeading = true
+
+  let {
+    trailing = false,
+    leading = true
+  } = options
+
+  function _clear() {
+    clearTimeout(timer)
+    timer = undefined
+  }
+
+  /**
+   * key: 记录上一次执行时间到现在执行时间间隔是否大于设置的duration, 大于则执行, 反之不执行
+   * @param _invoke 
+   */
+  const filter: EventFilter = _invoke => {
+    const duration = toValue(ms)
+    // 经过时间
+    const elapsed = Date.now() - lastExec
+
+    const invoke = () => {
+      lastExec = Date.now()
+      return _invoke()
+    }
+
+    _clear()
+
+    // 如果duration设置成小于等于0, 则立即执行
+    if ( duration <= 0 ) {
+      return invoke()
+    }
+
+    // 默认第一次点击是会执行的
+    // 如果leading设置成false, 在duration内的第二次点击会执行
+    if ( elapsed > duration && (leading || !isLeading) ) {
+      invoke()
+    } else if ( trailing ) {
+      // 最后会调用一次
+      new Promise((resolve, reject) => {
+
+      })
+    }
+
+    // 第一次点击的时候不执行, 在duration之后的第一次调用也不会立即执行
+    if ( !leading && !timer ) {
+      timer = setTimeout(() => {
+        isLeading = true
+      }, duration);
+    }
+
+    isLeading = false
+  }
+
+  return filter
+}
+
