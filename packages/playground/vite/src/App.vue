@@ -36,6 +36,7 @@
     <useCeil />
     <useFloor />
     <useAbs /> -->
+    <usePrecision />
 
     <!-- <h4>sensor</h4>
     <onClickOutside />
@@ -98,6 +99,7 @@
   import useCeil from "./math-demo/useCeil.vue";
   import useFloor from "./math-demo/useFloor.vue";
   import useAbs from "./math-demo/useAbs.vue";
+  import usePrecision from "./math-demo/usePrecision.vue";
 
   // sensor
   import onClickOutside from "./sensor-demo/onClickOutside.vue";

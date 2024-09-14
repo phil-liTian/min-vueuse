@@ -68,6 +68,13 @@
 4. useCeil
 5. useFloor
 6. useAbs
+7. logicAnd
+8. logicNot
+9. logicOr
+10. usePrecision // 设置数字的精度, 不能先x * 100 / 100这样计算, 如果有小数点的话, 直接乘10 ** digits / 10 ** digits是不可行的, 小数点应该先处理乘整数再计算，否则可能导致未知错误
+11. useRound // 四舍五入
+12. useSum
+13. useAverage // 平均值 元素可以ref， 普通number或者函数
 ```
 
 #### array
