@@ -3,12 +3,12 @@ import { Fn, MaybeRefOrGetter, Pausable } from "../utils/types";
 import { toValue } from "../toValue";
 import { tryOnScopeDispose } from "../tryOnScopeDispose";
 
-export interface UseIntervalOptions {
+export interface UseIntervalFnOptions {
   immediate?: boolean
   immediateCallback?: boolean
 }
 
-export function useIntervalFn(cb: Fn, interval: MaybeRefOrGetter<number> = 1000, options: UseIntervalOptions = {}): Pausable {
+export function useIntervalFn(cb: Fn, interval: MaybeRefOrGetter<number> = 1000, options: UseIntervalFnOptions = {}): Pausable {
   const { immediate = true, immediateCallback = false } = options
   const isActive = ref(false)
   let timer: ReturnType<typeof setInterval> | null = null

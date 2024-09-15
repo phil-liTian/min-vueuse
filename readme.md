@@ -45,6 +45,9 @@
 41. useClipboard // 复制文本到剪切板, 使用navigator?.clipboard.writeText实现，如果不支持当前api可降级使用document.execCommand('copy')实现
 42. useClipboardItems // 拷贝一个ClipboardItem实例 与useClipboard不同, 使用navigator!.clipboard.write(value!)实现
 43. usePermission // 实现浏览器使用权限查询, 使用navigator!.permissions.query(desc)实现，desc是一个对象{name: string}
+44. useInterval // 返回一个counter 对象, 将controls设置成ture的话可实现暂停、可恢复、可立即执行
+45. useTimeStamp // 获取当前时间戳, interval: number | 'requestAnimationFrame' 两种实现方式, 返回Pausable对象 可中断、可恢复
+46. useTimeout // 返回一个ready状态， 将control设置成true, 可返回一个Stopable对象
 ```
 
 #### 已实现的components有:
@@ -82,6 +85,9 @@
 11. useRound // 四舍五入
 12. useSum
 13. useAverage // 平均值 元素可以ref， 普通number或者函数
+14. createGenericProjection // 数字投影基础方法
+15. createProjection // 从一个域到另一个域的数字投影
+16. useClamp // 限制数字在min和max之间, 使用基础方法clamp实现
 ```
 
 #### array
@@ -103,6 +109,7 @@
 
 ```js
 1. useDateFormat // 实现dayjs中时间格式化功能
+2. useTimeAgo // 获取某个时间距另一时间的间隔 返回Pausable对象 可中断、可恢复
 ```
 
 #### watch 监视

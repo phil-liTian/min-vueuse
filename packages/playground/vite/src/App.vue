@@ -25,10 +25,11 @@
     <useThrottle />
     <useCounter />
     <useEventBus />
-    <useEventBusSib /> -->
+    <useEventBusSib /> 
     <useClipboard />
-    <usePermission />
-    
+    <usePermission /> -->
+    <useInterval />
+    <useTimeStamp />
 
 
     <!-- math -->
@@ -40,6 +41,8 @@
     <useFloor />
     <useAbs />
     <usePrecision /> -->
+    <useProjection />
+    <useClamp />
 
     <!-- <h4>sensor</h4>
     <onClickOutside />
@@ -93,6 +96,8 @@
   import useEventBusSib from "./core-demo/useEventBusSib.vue";
   import useClipboard from "./core-demo/useClipboard.vue";
   import usePermission from "./core-demo/usePermission.vue";
+  import useInterval from "./core-demo/useInterval.vue";
+  import useTimeStamp from "./core-demo/useTimeStamp.vue";
 
   // 动画
   import useRafFn from "./core-demo/useRafFn.vue";
@@ -105,6 +110,8 @@
   import useFloor from "./math-demo/useFloor.vue";
   import useAbs from "./math-demo/useAbs.vue";
   import usePrecision from "./math-demo/usePrecision.vue";
+  import useProjection from "./math-demo/useProjection.vue";
+  import useClamp from "./math-demo/useClamp.vue";
 
   // sensor
   import onClickOutside from "./sensor-demo/onClickOutside.vue";
