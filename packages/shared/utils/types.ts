@@ -18,8 +18,19 @@ export type ArgumentsType<T> = T extends (...args: infer U) => any ? U : never
 export type Promisify<T> = Promise<T>
 
 
+// 可中断、可恢复
 export interface Pausable {
   isActive: Ref<boolean>;
   pause: Fn;
   resume: Fn;
 }
+
+export interface Stopable<StartFnArgs extends any[] = any[]> {
+  isPending: Readonly<Ref<boolean>>;
+
+  stop: Fn;
+
+  start: (...args: StartFnArgs) => void
+}
+
+

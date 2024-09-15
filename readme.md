@@ -41,6 +41,10 @@
 37. useThrottledRefHistory // 返回一个防抖的history, 记录ref变化快照，在throttle的时间内最多记录一次
 38. useCounter // 返回一个counter, 可指定其最大、最小值。
 39. useEventBus // 时间总线event bus, 可实现任意组件之间通讯。创建全局events map对象，on注册事件，off注销事件
+40. useTimeoutFn // 延时执行的任务 返回一个 Stopable对象 可暂停、可恢复、可立即执行
+41. useClipboard // 复制文本到剪切板, 使用navigator?.clipboard.writeText实现，如果不支持当前api可降级使用document.execCommand('copy')实现
+42. useClipboardItems // 拷贝一个ClipboardItem实例 与useClipboard不同, 使用navigator!.clipboard.write(value!)实现
+43. usePermission // 实现浏览器使用权限查询, 使用navigator!.permissions.query(desc)实现，desc是一个对象{name: string}
 ```
 
 #### 已实现的components有:
@@ -50,6 +54,8 @@
 2. OnClickOutside
 3. UseBattery
 4. UseTimeAgo
+5. UseNetWork
+6. UseClipboard
 ```
 
 #### 已实现的自定义指令
@@ -57,6 +63,7 @@
 ```js
 1. vOnClickOutside
 2. vOnKeyStroke
+3. vCopy
 ```
 
 #### math

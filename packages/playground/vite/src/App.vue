@@ -21,11 +21,14 @@
     <watchDebounced />
     <refDebounce />
     <tryOnBeforeMount />
-    <useVModel /> -->
+    <useVModel />
     <useThrottle />
     <useCounter />
     <useEventBus />
-    <useEventBusSib />
+    <useEventBusSib /> -->
+    <useClipboard />
+    <usePermission />
+    
 
 
     <!-- math -->
@@ -35,8 +38,8 @@
     <useTrunc />
     <useCeil />
     <useFloor />
-    <useAbs /> -->
-    <usePrecision />
+    <useAbs />
+    <usePrecision /> -->
 
     <!-- <h4>sensor</h4>
     <onClickOutside />
@@ -88,6 +91,8 @@
   import useCounter from "./core-demo/useCounter.vue";
   import useEventBus from "./core-demo/useEventBus.vue";
   import useEventBusSib from "./core-demo/useEventBusSib.vue";
+  import useClipboard from "./core-demo/useClipboard.vue";
+  import usePermission from "./core-demo/usePermission.vue";
 
   // 动画
   import useRafFn from "./core-demo/useRafFn.vue";
