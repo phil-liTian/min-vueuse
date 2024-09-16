@@ -60,6 +60,7 @@
 4. UseTimeAgo
 5. UseNetWork
 6. UseClipboard
+7. UseOnline // 获取在线状态
 ```
 
 #### 已实现的自定义指令
@@ -93,9 +94,15 @@
 ```
 
 #### array
-
 ```js
 1. useArrayEvery // 处理响应式数组, 返回computedRef<boolean>
+2. useArrayDifference // 在original中过滤掉在others中的元素, compareFn为比较函数, 可以传入函数或者字符串
+3. useArrayFilter // 处理响应式数组, 返回符合filter函数的元素
+4. useArrayFind // 处理响应式数组, 返回找到的数组元素
+5. useArrayFindIndex // 处理响应式数组, 返回找到的数组元素的索引
+6. useArrayFindLast // 处理响应式数组, 从后面开始找 返回找到的数组元素
+7. useArrayIncludes // 返回computedRef<boolean> 判断数组是否包含某元素, 可以指定comparator
+8. useArrayJoin // 返回Compunted<string> 使用separator拼接字符串
 ```
 
 #### 工具方法总结
@@ -113,6 +120,12 @@
 1. useDateFormat // 实现dayjs中时间格式化功能
 2. useTimeAgo // 获取某个时间距另一时间的间隔 返回Pausable对象 可中断、可恢复
 ```
+
+#### 浏览器
+```js
+1. useOnline // 在线状态监听
+```
+
 
 #### watch 监视
 

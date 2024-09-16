@@ -68,6 +68,11 @@
 
     <h4>array</h4>
     <useArrayEvery />
+    <useArrayDifference />
+
+
+    <h4>browser</h4>
+    <useOnline />
 
   </div>
 </template>
@@ -137,6 +142,10 @@
 
   // array
   import useArrayEvery from "./array-demo/useArrayEvery.vue";
+  import useArrayDifference from "./array-demo/useArrayDifference.vue";
+
+  // browser
+  import useOnline from './browser-demo/useOnline.vue'
 </script>
   
 <style lang='less' scoped>

@@ -12,6 +12,8 @@
 1. reactify
 2. useMath
 
+useOnline
+
 数组
 1. useArrayDifference
 2. useArrayFilter
@@ -40,6 +42,7 @@ storage
 
 
 3. useScroll
+useScrollLock
 4. useElementVisibility
 3. useInfiniteScroll
 

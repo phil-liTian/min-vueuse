@@ -45,3 +45,9 @@ export function createSingletonPromise<T>(fn: () => Promise<T>): SingletonPromis
 
   return wrapper
 }
+
+
+// 对象中包含属性
+export function containsProp(obj: Object, ...props: string[]) {
+  return props.some(p => p in obj)
+}
