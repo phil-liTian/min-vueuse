@@ -48,6 +48,7 @@
 44. useInterval // 返回一个counter 对象, 将controls设置成ture的话可实现暂停、可恢复、可立即执行
 45. useTimeStamp // 获取当前时间戳, interval: number | 'requestAnimationFrame' 两种实现方式, 返回Pausable对象 可中断、可恢复
 46. useTimeout // 返回一个ready状态， 将control设置成true, 可返回一个Stopable对象
+47. reactify // 工具方法, 将fn转化成参数可传递ref的函数 fn.bind(this, args.map(v => toValue(v)))
 ```
 
 #### 已实现的components有:
@@ -88,6 +89,7 @@
 14. createGenericProjection // 数字投影基础方法
 15. createProjection // 从一个域到另一个域的数字投影
 16. useClamp // 限制数字在min和max之间, 使用基础方法clamp实现
+17. useMath // 可以使用math上的所有方法，并且元素可以是ref类型
 ```
 
 #### array

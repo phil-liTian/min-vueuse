@@ -2,8 +2,8 @@
 <template>
   <div>
     <!-- core -->
-     <h4>core</h4>
-    <!-- <useEventListener />
+     <!-- <h4>core</h4>
+    <useEventListener />
     <useMounted />
     <useMemory />
     <useMouse />
@@ -27,9 +27,10 @@
     <useEventBus />
     <useEventBusSib /> 
     <useClipboard />
-    <usePermission /> -->
+    <usePermission />
     <useInterval />
     <useTimeStamp />
+    <reactify /> -->
 
 
     <!-- math -->
@@ -40,9 +41,10 @@
     <useCeil />
     <useFloor />
     <useAbs />
-    <usePrecision /> -->
+    <usePrecision />
     <useProjection />
     <useClamp />
+    <useMath /> -->
 
     <!-- <h4>sensor</h4>
     <onClickOutside />
@@ -64,8 +66,8 @@
     <createGlobalState />
     <test /> -->
 
-    <!-- <h4>array</h4>
-    <useArrayEvery /> -->
+    <h4>array</h4>
+    <useArrayEvery />
 
   </div>
 </template>
@@ -98,6 +100,7 @@
   import usePermission from "./core-demo/usePermission.vue";
   import useInterval from "./core-demo/useInterval.vue";
   import useTimeStamp from "./core-demo/useTimeStamp.vue";
+  import reactify from "./core-demo/reactify.vue";
 
   // 动画
   import useRafFn from "./core-demo/useRafFn.vue";
@@ -112,6 +115,7 @@
   import usePrecision from "./math-demo/usePrecision.vue";
   import useProjection from "./math-demo/useProjection.vue";
   import useClamp from "./math-demo/useClamp.vue";
+  import useMath from "./math-demo/useMath.vue";
 
   // sensor
   import onClickOutside from "./sensor-demo/onClickOutside.vue";
