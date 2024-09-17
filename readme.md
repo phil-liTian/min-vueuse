@@ -66,6 +66,7 @@
 7. UseOnline // 获取在线状态
 8. UseGeolocation // 获取当前地理位置
 9. UseIdle // 监听用户是否处于活动状态
+10. UsePageLeave
 ```
 
 #### 已实现的自定义指令
