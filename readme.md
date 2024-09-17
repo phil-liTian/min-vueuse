@@ -49,6 +49,9 @@
 45. useTimeStamp // 获取当前时间戳, interval: number | 'requestAnimationFrame' 两种实现方式, 返回Pausable对象 可中断、可恢复
 46. useTimeout // 返回一个ready状态， 将control设置成true, 可返回一个Stopable对象
 47. reactify // 工具方法, 将fn转化成参数可传递ref的函数 fn.bind(this, args.map(v => toValue(v)))
+48. useGeolocation // 获取当前地理位置信息, navigator?.geolocation.watchPosition
+49. useIdle  // 跟踪用户是否处于活动状态 true为非活动状态 false为活动状态， 监听mousemove、keydown等事件
+50. usePageLeave // 监听页面离开 利用event.relatedTarget || event.toElement实现
 ```
 
 #### 已实现的components有:
@@ -61,6 +64,8 @@
 5. UseNetWork
 6. UseClipboard
 7. UseOnline // 获取在线状态
+8. UseGeolocation // 获取当前地理位置
+9. UseIdle // 监听用户是否处于活动状态
 ```
 
 #### 已实现的自定义指令

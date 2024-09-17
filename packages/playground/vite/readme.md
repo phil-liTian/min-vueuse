@@ -22,6 +22,15 @@ useOnline
 5. useArrayFindLast
 6. useArrayIncludes
 7. useArrayJoin
+
+
+useGeolocation 获取地理位置
+useIdle  跟踪用户是否处于活动状态
+usePageLeave 
+useNavigatorLanguage
+useElementHover
+
+
 8. useArrayMap
 9. useArrayReduce
 10. useArraySome

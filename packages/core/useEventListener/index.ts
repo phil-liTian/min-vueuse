@@ -4,6 +4,8 @@ import { noop, toValue, tryOnScopeDispose } from '@mini-vueuse/shared'
 import { watch } from 'vue'
 import { defaultWindow } from '../_configurable'
 
+export type WindowEventName = keyof WindowEventMap
+
 export interface InferEventTarget<T> {
   addEvenetListner: (event: T, fn?: AnyFn, options?: AddEventListenerOptions) => any
   removeEvenetListner: (event: T, fn?: AnyFn, options?: AddEventListenerOptions) => any

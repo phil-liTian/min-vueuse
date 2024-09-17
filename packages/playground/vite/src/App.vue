@@ -31,6 +31,9 @@
     <useInterval />
     <useTimeStamp />
     <reactify /> -->
+    <useGeolocation />
+    <useIdle />
+    <usePageLeave />
 
 
     <!-- math -->
@@ -70,7 +73,6 @@
     <useArrayEvery />
     <useArrayDifference />
 
-
     <h4>browser</h4>
     <useOnline />
 
@@ -106,6 +108,9 @@
   import useInterval from "./core-demo/useInterval.vue";
   import useTimeStamp from "./core-demo/useTimeStamp.vue";
   import reactify from "./core-demo/reactify.vue";
+  import useGeolocation from "./core-demo/useGeolocation.vue";
+  import useIdle from "./core-demo/useIdle.vue";
+  import usePageLeave from "./core-demo/usePageLeave.vue";
 
   // 动画
   import useRafFn from "./core-demo/useRafFn.vue";
