@@ -1,8 +1,14 @@
-import { Ref, ShallowRef, WritableComputedRef, ComputedRef } from 'vue'
+import { Ref, ShallowRef, WritableComputedRef, ComputedRef, WatchOptions } from 'vue'
 
 export type Fn = () => void
 
 export type AnyFn = (...args: any[]) => any
+
+// 允许ref类型设置成null和undefined
+export type RemovableRef<T> = Omit<Ref<T>, 'value'> & {
+  get value(): T
+  set value(value: T | undefined | null)
+}
 
 export type Arrayable<T> = T | T[]
 
@@ -31,6 +37,13 @@ export interface Stopable<StartFnArgs extends any[] = any[]> {
   stop: Fn;
 
   start: (...args: StartFnArgs) => void
+}
+
+
+
+
+export interface ConfigurableFlush {
+  flush?: WatchOptions['flush']
 }
 
 

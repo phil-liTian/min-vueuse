@@ -30,10 +30,12 @@
     <usePermission />
     <useInterval />
     <useTimeStamp />
-    <reactify /> -->
+    <reactify />
     <useGeolocation />
     <useIdle />
-    <usePageLeave />
+    <usePageLeave /> -->
+    <useStorage />
+
 
 
     <!-- math -->
@@ -69,12 +71,12 @@
     <createGlobalState />
     <test /> -->
 
-    <h4>array</h4>
+    <!-- <h4>array</h4>
     <useArrayEvery />
-    <useArrayDifference />
+    <useArrayDifference /> -->
 
-    <h4>browser</h4>
-    <useOnline />
+    <!-- <h4>browser</h4>
+    <useOnline /> -->
 
   </div>
 </template>
@@ -111,6 +113,7 @@
   import useGeolocation from "./core-demo/useGeolocation.vue";
   import useIdle from "./core-demo/useIdle.vue";
   import usePageLeave from "./core-demo/usePageLeave.vue";
+  import useStorage from "./core-demo/useStorage.vue";
 
   // 动画
   import useRafFn from "./core-demo/useRafFn.vue";

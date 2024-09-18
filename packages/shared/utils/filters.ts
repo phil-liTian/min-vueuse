@@ -35,7 +35,7 @@ export interface ConfigableEventFilter {
   eventFilter?: EventFilter
 }
 
-// 如何实现的可中断、可恢复？？？
+// 如何实现的可中断、可恢复
 export function pausableFilter(extendFilter: EventFilter = byPassFilter) {
   const isActive = ref(true)
 

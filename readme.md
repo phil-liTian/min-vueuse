@@ -52,6 +52,11 @@
 48. useGeolocation // 获取当前地理位置信息, navigator?.geolocation.watchPosition
 49. useIdle  // 跟踪用户是否处于活动状态 true为非活动状态 false为活动状态， 监听mousemove、keydown等事件
 50. usePageLeave // 监听页面离开 利用event.relatedTarget || event.toElement实现
+51. watchPausable // 返回可中断、可恢复的watch
+52. useStorage // 创建可用于访问和修改storage的引用, 默认使用localStorage, 通过自定义各种类型数据的序列化函数有效解决序列化本身存在的无法解决Map、Set等数据结构的问题。利用watchPausable实现可暂停可恢复的watch.有效避免使用read更新data触发watch的问题
+53. useLocalStorage // 创建一个localStorage的ref, useStorage方法storage方式使用localStorage
+53. useSessionStorage // 创建一个sessionStorage的ref, useStorage方法storage方式使用sessionStorage
+54. useStorageSync // 支持异步方式的useStorage
 ```
 
 #### 已实现的components有:
