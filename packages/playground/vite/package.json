@@ -2,6 +2,7 @@
   "name": "vite",
   "version": "1.0.0",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "start": "npm run dev",
     "dev": "vite",
@@ -12,10 +13,11 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "vue": "^3.5.3",
-    "@mini-vueuse/core": "workspace:*",
+    "@mini-vueuse/browser": "workspace:*",
     "@mini-vueuse/components": "workspace:*",
-    "@mini-vueuse/browser": "workspace:*"
+    "@mini-vueuse/core": "workspace:*",
+    "unocss": "^0.62.4",
+    "vue": "^3.5.3"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.1.3",

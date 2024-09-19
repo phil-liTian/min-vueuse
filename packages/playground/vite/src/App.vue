@@ -33,8 +33,11 @@
     <reactify />
     <useGeolocation />
     <useIdle />
-    <usePageLeave /> -->
+    <usePageLeave /> 
     <useStorage />
+    <useAnimate /> -->
+    <useTransition />
+    <useDraggable />
 
 
 
@@ -114,6 +117,9 @@
   import useIdle from "./core-demo/useIdle.vue";
   import usePageLeave from "./core-demo/usePageLeave.vue";
   import useStorage from "./core-demo/useStorage.vue";
+  import useAnimate from './core-demo/useAnimate.vue'
+  import useTransition from "./core-demo/useTransition.vue";
+  import useDraggable from "./core-demo/useDraggable.vue";
 
   // 动画
   import useRafFn from "./core-demo/useRafFn.vue";

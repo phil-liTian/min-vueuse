@@ -22,10 +22,10 @@ describe('useStorage', () => {
       const ref = useStorage(KEY, 'a', storage)
       return { ref }
     })
-    
+
     expect(vm.ref).toBe('a')
     expect(storage.setItem).toBeCalledWith(KEY, 'a')
-    
+
     vm.ref = 'b'
     await nextTwoTick()
     expect(storage.setItem).toBeCalledWith(KEY, 'b')
@@ -44,7 +44,7 @@ describe('useStorage', () => {
     await nextTwoTick()
     expect(storage.setItem).toHaveBeenCalledWith(KEY, '-1')
 
-    store.value= 2.4
+    store.value = 2.4
     await nextTwoTick()
     expect(storage.setItem).toHaveBeenCalledWith(KEY, '2.4')
   })
@@ -156,7 +156,7 @@ describe('useStorage', () => {
     const store = useStorage(KEY, new Set<string | number>([1, '2']), storage)
 
     expect(storage.setItem).toHaveBeenCalledWith(KEY, '[1,"2"]')
-    expect(store.value).toEqual(new Set([1,'2']))
+    expect(store.value).toEqual(new Set([1, '2']))
 
     store.value.add(3)
     await nextTwoTick()
@@ -165,7 +165,7 @@ describe('useStorage', () => {
 
   it('should work with ref value', async () => {
     storage.removeItem(KEY)
-    const obj = ref({ name: 'phil', age: 27})
+    const obj = ref({ name: 'phil', age: 27 })
     const state = useStorage(KEY, obj, storage)
     await nextTwoTick()
     expect(storage.setItem).toHaveBeenCalledWith(KEY, '{"name":"phil","age":27}')

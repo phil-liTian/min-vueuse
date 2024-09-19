@@ -5,9 +5,9 @@ import { useBattery } from ".";
 export const UseBattery = defineComponent({
   name: 'UseBattery',
   setup(props, { slots }) {
-    const data  = reactive(useBattery())
+    const data = reactive(useBattery())
     return () => {
-      if ( slots.default ) {
+      if (slots.default) {
         return slots.default(data)
       }
     }

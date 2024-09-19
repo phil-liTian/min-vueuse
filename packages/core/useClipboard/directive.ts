@@ -7,10 +7,10 @@ export const vCopy = {
   [directiveHooks.mounted](el, binding) {
 
     const { value, modifiers, arg } = binding;
-    const { copy, copied } = useClipboard({ source: arg});
+    const { copy, copied } = useClipboard({ source: arg });
     console.log('arg', arg);
     el.style.cursor = 'pointer';
-    
+
     useEventListener(el, 'click', () => copy(arg))
   }
 }

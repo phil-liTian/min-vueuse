@@ -17,7 +17,7 @@ export interface ReactifyOptions<T extends boolean> {
 
 export function reactify<T extends AnyFn, K extends boolean = true>(fn: T, options: ReactifyOptions<K> = {}): ReactifyReturn<T, K> {
   const unrefFn = options.computtedGetter === false ? unref : toValue
-  return function(this: any, ...args: any[]) {
+  return function (this: any, ...args: any[]) {
     return computed(() => fn.apply(this, args.map(i => unrefFn(i))))
   } as any
 }

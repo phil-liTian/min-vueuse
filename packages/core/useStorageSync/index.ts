@@ -29,45 +29,45 @@ export function useStorageSync<T extends (string | number | object | null | bool
 
   function read(event?: StorageEvent) {
     console.log('event', event);
-    if ( !storage || (event && event.key !== key) )
+    if (!storage || (event && event.key !== key))
       return
     try {
       const rawValue = event ? event.newValue : storage.getItem(key)
-      if ( rawValue == null ) {
+      if (rawValue == null) {
         // 初始化时没有event和storage.getItem(key)
         // 需要执行写操作
-        if ( rawInit != null ) {
+        if (rawInit != null) {
           storage.setItem(key, serializer.write(rawInit))
         }
 
         return rawInit
-      } else if ( !event && mergeDefaults ) {
+      } else if (!event && mergeDefaults) {
         const value = serializer.read(rawValue)
-        if ( type === 'object' && !Array.isArray(value) ) {
+        if (type === 'object' && !Array.isArray(value)) {
           return { ...(rawInit as any), ...value }
         }
         return value
-      } else if ( typeof rawValue !== 'string' ) {
+      } else if (typeof rawValue !== 'string') {
         return rawValue
       }
-      return serializer.read(rawValue) 
+      return serializer.read(rawValue)
 
-    } catch(error) {
+    } catch (error) {
       onError(error)
     }
-  } 
+  }
 
   read()
 
-  if ( storage ) {
+  if (storage) {
     watchWithFilter(data, async () => {
-      try{
-        if ( data.value == null ) {
+      try {
+        if (data.value == null) {
           await storage.removeItem(key)
         } else {
           await storage.setItem(key, await serializer.write(data.value))
         }
-      } catch(e) {
+      } catch (e) {
         onError(e)
       }
     }, { deep, flush, eventFilter })

@@ -9,7 +9,7 @@ export interface UseClipboardOptions<Source> extends ConfigableNavigator {
   /**
    * clipboard api 不可用时启用备选方案
    */
-  legacy?: boolean; 
+  legacy?: boolean;
 
   /**
    * 拷贝时长
@@ -20,7 +20,7 @@ export interface UseClipboardOptions<Source> extends ConfigableNavigator {
 export interface UseClipboardReturn<Optional> {
   isSupported: ComputedRef<boolean>;
   // 
-  copy:Optional extends true ? (text?: string) => Promise<void> : (text: string) => Promise<void>;
+  copy: Optional extends true ? (text?: string) => Promise<void> : (text: string) => Promise<void>;
 
   copied: Ref<boolean>;
 }
@@ -50,8 +50,8 @@ export function useClipboard(options: UseClipboardOptions<MaybeRefOrGetter<strin
   const timeout = useTimeoutFn(() => copied.value = false, copiedDuring)
 
   async function copy(value = toValue(source)) {
-    if ( isSupported.value || value !== undefined ) {
-      if ( isClipboarApiIsSupported.value ) {
+    if (isSupported.value || value !== undefined) {
+      if (isClipboarApiIsSupported.value) {
         // 支持clipboard api
         await navigator?.clipboard.writeText(value!)
       } else {
@@ -75,7 +75,7 @@ export function useClipboard(options: UseClipboardOptions<MaybeRefOrGetter<strin
     document.execCommand('copy')
     textarea.remove()
   }
-  
+
   return {
     isSupported,
     copy,

@@ -42,7 +42,7 @@ export interface UseStorageOptions<T> extends ConfigurableFlush, ConfigableWindo
 }
 
 export function useStorage<T>(
-  key: string, 
+  key: string,
   defaults: MaybeRefOrGetter<T>,
   storage: Storage = window.localStorage,
   options: UseStorageOptions<T> = {},
@@ -63,14 +63,14 @@ export function useStorage<T>(
   const type = guessSerializerType<T>(rawInit)
   // 支持自定义serializer
   const serializer = options.serializer ?? StorageSerializers[type]
-  
+
   // 需要是一个ref对象， 用于watch监听
   const data = (shallow ? shallowRef : ref)(typeof defaults === 'function' ? (defaults as Function)() : ref(defaults))
   const { pause: pauseWatch, resume: resumeWatch } = watchPausable(data, () => write(data.value), { flush, deep, eventFilter })
 
-  if ( window && listenToStorageChanged ) {
+  if (window && listenToStorageChanged) {
     tryOnMounted(() => {
-      if ( storage instanceof Storage ) {
+      if (storage instanceof Storage) {
         useEventListener(window, 'storage', update)
       } else {
         // 自定义storage
@@ -80,7 +80,7 @@ export function useStorage<T>(
   }
 
   function dispatchWriteEvent(oldValue: string | null, newValue: string | null) {
-    if ( window ) {
+    if (window) {
 
       const payload: StorageEventLike = {
         key,
@@ -89,27 +89,27 @@ export function useStorage<T>(
         storageArea: storage as Storage
       }
 
-      window.dispatchEvent(storage instanceof Storage ? new StorageEvent('storage', payload) : new CustomEvent<StorageEventLike>(customStorageEventName, { detail: payload }) )
+      window.dispatchEvent(storage instanceof Storage ? new StorageEvent('storage', payload) : new CustomEvent<StorageEventLike>(customStorageEventName, { detail: payload }))
     }
   }
-    
+
   // 写到storage中
   function write(v: unknown) {
     try {
       const oldValue = storage.getItem(key)
-      if ( v == null && writeDefaults ) {
+      if (v == null && writeDefaults) {
         // 匹配 null和undefined
         storage.removeItem(key)
       } else {
         const serialized = serializer.write(v as any)
-        
+
         // 写操作
-        if ( oldValue !== serialized ) {
+        if (oldValue !== serialized) {
           storage.setItem(key, serialized)
           dispatchWriteEvent(oldValue, serialized)
         }
       }
-    } catch(e) {
+    } catch (e) {
       onError(e)
     }
   }
@@ -117,52 +117,52 @@ export function useStorage<T>(
   // 读取storage中的值
   function read(event?: StorageEventLike) {
     const rawValue = event ? event.newValue : storage.getItem(key)
-    if ( rawValue == null ) {
+    if (rawValue == null) {
       // 初始化时没有event和storage.getItem(key)
       // 需要执行写操作
-      if ( rawInit != null ) {
+      if (rawInit != null) {
         storage.setItem(key, serializer.write(rawInit))
       }
 
       return rawInit
-    } else if ( !event && mergeDefaults ) {
+    } else if (!event && mergeDefaults) {
       const value = serializer.read(rawValue)
-      if ( type === 'object' && !Array.isArray(value) ) {
+      if (type === 'object' && !Array.isArray(value)) {
         return { ...rawInit, ...value }
       }
       return value
-    } else if ( typeof rawValue !== 'string' ) {
+    } else if (typeof rawValue !== 'string') {
       return rawValue
     }
     return serializer.read(rawValue)
   }
 
   function update(event?: StorageEventLike) {
-    if ( event ) {
-      if ( event.storageArea !== storage ) return
+    if (event) {
+      if (event.storageArea !== storage) return
 
-      if ( event.key === null ) {
+      if (event.key === null) {
         data.value = rawInit
         return
       }
 
-      if ( event.key !== key ) return
+      if (event.key !== key) return
     }
 
     pauseWatch()
 
     try {
-      if ( event?.newValue !== serializer.write(data.value) ) {
+      if (event?.newValue !== serializer.write(data.value)) {
         data.value = read(event)
       }
-    } catch(e) {
+    } catch (e) {
 
     } finally {
       resumeWatch()
     }
   }
 
-  if ( !initOnMounted ) {
+  if (!initOnMounted) {
     update()
   }
 

@@ -6,7 +6,7 @@ export type KeyFilter = string | string[] | true | ((event: KeyboardEvent) => st
 
 export type KeyStrokeEventName = 'keyup' | 'keydown' | 'keypress'
 
-export type OnKeyStrokeOptions  = {
+export type OnKeyStrokeOptions = {
   eventName?: KeyStrokeEventName
 
   target?: MaybeRefOrGetter<EventTarget | null | undefined>;
@@ -16,11 +16,11 @@ export type OnKeyStrokeOptions  = {
 }
 
 function createKeyPredicate(keyFilter: KeyFilter) {
-  if ( typeof keyFilter === 'string' ) {
+  if (typeof keyFilter === 'string') {
     return (event: KeyboardEvent) => event.key === keyFilter
-  } else if ( Array.isArray(keyFilter) ) {
+  } else if (Array.isArray(keyFilter)) {
     return (event: KeyboardEvent) => keyFilter.includes(event.key)
-  } else if ( typeof keyFilter === 'function' ) {
+  } else if (typeof keyFilter === 'function') {
     return keyFilter
   }
 
@@ -32,10 +32,10 @@ export function onKeyStroke(...args: any[]) {
   let handler: (event: KeyboardEvent) => void
   let options: OnKeyStrokeOptions = {}
 
-  if ( args.length === 3 ) {
+  if (args.length === 3) {
     [key, handler, options] = args
   } else if (args.length === 2) {
-    if ( typeof args[1] === 'object' ) {
+    if (typeof args[1] === 'object') {
       key = true
       handler = args[0]
       options = args[1]
@@ -45,8 +45,8 @@ export function onKeyStroke(...args: any[]) {
   } else {
     key = true
   }
-  
-  const { 
+
+  const {
     target = defaultWindow,
     eventName = 'keydown',
     dedupe = false
@@ -55,12 +55,12 @@ export function onKeyStroke(...args: any[]) {
   const predicate = createKeyPredicate(key)
 
   const listener = (e: KeyboardEvent) => {
-    if ( toValue(dedupe) && e.repeat ) {
+    if (toValue(dedupe) && e.repeat) {
       return
     }
 
     // 放行条件
-    if ( predicate(e) ) {
+    if (predicate(e)) {
       handler(e)
     }
   }

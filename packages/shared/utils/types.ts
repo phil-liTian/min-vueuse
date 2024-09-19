@@ -1,4 +1,4 @@
-import { Ref, ShallowRef, WritableComputedRef, ComputedRef, WatchOptions } from 'vue'
+import { Ref, ShallowRef, WritableComputedRef, ComputedRef, WatchOptions, readonly } from 'vue'
 
 export type Fn = () => void
 
@@ -20,9 +20,7 @@ export type ReadonlyRefOrGetter<T> = ComputedRef<T> | (() => T)
 
 export type ArgumentsType<T> = T extends (...args: infer U) => any ? U : never
 
-
 export type Promisify<T> = Promise<T>
-
 
 // 可中断、可恢复
 export interface Pausable {
@@ -39,11 +37,10 @@ export interface Stopable<StartFnArgs extends any[] = any[]> {
   start: (...args: StartFnArgs) => void
 }
 
-
-
-
 export interface ConfigurableFlush {
   flush?: WatchOptions['flush']
 }
+
+export type Mutable<T> = { -readonly [P in keyof T]: T[P] }
 
 

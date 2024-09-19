@@ -3,7 +3,7 @@ import { mount, VueWrapper } from '@vue/test-utils'
 import { defineComponent } from "vue";
 
 const App = defineComponent({
-  
+
 })
 
 describe('vOnKeyStroke', () => {

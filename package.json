@@ -6,13 +6,16 @@
     "test": "vitest"
   },
   "dependencies": {
+    "@mini-vueuse/array": "workspace:*",
+    "@mini-vueuse/browser": "workspace:*",
     "@mini-vueuse/components": "workspace:*",
     "@mini-vueuse/core": "workspace:*",
     "@mini-vueuse/math": "workspace:*",
     "@mini-vueuse/shared": "workspace:*",
-    "@mini-vueuse/array": "workspace:*",
-    "@mini-vueuse/browser": "workspace:*",
+    "@unocss/preset-attributify": "^0.62.4",
+    "@unocss/preset-uno": "^0.62.4",
     "jsdom": "^25.0.0",
+    "unocss": "^0.62.4",
     "vitest": "^2.0.5",
     "vue": "^3.5.3"
   },

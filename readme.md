@@ -57,6 +57,7 @@
 53. useLocalStorage // 创建一个localStorage的ref, useStorage方法storage方式使用localStorage
 53. useSessionStorage // 创建一个sessionStorage的ref, useStorage方法storage方式使用sessionStorage
 54. useStorageSync // 支持异步方式的useStorage
+55. useAnimate // 使用el.animation实现动画, 结合useRafFn实现返回一个可Pausable的对象
 ```
 
 #### 已实现的components有:

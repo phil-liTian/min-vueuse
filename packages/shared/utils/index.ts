@@ -38,7 +38,6 @@ export function createSingletonPromise<T>(fn: () => Promise<T>): SingletonPromis
     return _promise
   }
 
-
   wrapper.reset = () => {
     _promise = undefined
   }
@@ -51,3 +50,12 @@ export function createSingletonPromise<T>(fn: () => Promise<T>): SingletonPromis
 export function containsProp(obj: Object, ...props: string[]) {
   return props.some(p => p in obj)
 }
+
+
+// 筛选中obj中key在keys中的属性 返回一个新对象
+export function objectOmit<O extends Object, K extends keyof O>(obj: O, keys: K[], omitUndefined = false) {
+  return Object.fromEntries(Object.entries(obj).filter(([key, value]) => {
+    return keys.includes(key as K) && (!omitUndefined || value !== undefined)
+  }))
+}
+
