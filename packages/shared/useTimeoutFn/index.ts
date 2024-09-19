@@ -1,18 +1,22 @@
-import { ref } from "vue";
-import { AnyFn, Fn, MaybeRefOrGetter, Stopable } from "../utils";
-import { toValue } from "../toValue";
+import { ref } from 'vue'
+import { AnyFn, Fn, MaybeRefOrGetter, Stopable } from '../utils'
+import { toValue } from '../toValue'
 
 export interface UseTimeoutFnOptions {
-  immediate?: boolean;
+  immediate?: boolean
 }
 
-export function useTimeoutFn<CallbackFn extends AnyFn>(cb: CallbackFn, interval: MaybeRefOrGetter<number>, options: UseTimeoutFnOptions = {}): Stopable<Parameters<CallbackFn> | []> {
-  const { immediate = true } = options;
+export function useTimeoutFn<CallbackFn extends AnyFn>(
+  cb: CallbackFn,
+  interval: MaybeRefOrGetter<number>,
+  options: UseTimeoutFnOptions = {}
+): Stopable<Parameters<CallbackFn> | []> {
+  const { immediate = true } = options
   let isPending = ref(false)
-  let timer: ReturnType<typeof setTimeout> | undefined;
+  let timer: ReturnType<typeof setTimeout> | undefined
 
   function clear() {
-    if ( timer ) {
+    if (timer) {
       clearTimeout(timer)
       timer = undefined
     }
@@ -23,7 +27,7 @@ export function useTimeoutFn<CallbackFn extends AnyFn>(cb: CallbackFn, interval:
     timer = setTimeout(() => {
       cb(...args)
       isPending.value = false
-    }, toValue(interval));
+    }, toValue(interval))
   }
 
   function stop() {
@@ -31,8 +35,7 @@ export function useTimeoutFn<CallbackFn extends AnyFn>(cb: CallbackFn, interval:
     clear()
   }
 
-  if ( immediate )
-    start()
+  if (immediate) start()
 
   return {
     isPending,

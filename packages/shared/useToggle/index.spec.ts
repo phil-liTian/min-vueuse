@@ -1,7 +1,7 @@
-import { describe, expect, it, vi } from "vitest";
+import { describe, expect, it, vi } from 'vitest'
 import { useToggle } from '.'
-import { isRef, ref } from "vue";
-import { toValue } from "../toValue";
+import { isRef, ref } from 'vue'
+import { toValue } from '../toValue'
 
 describe('useToggle', () => {
   it('default result', () => {
@@ -17,21 +17,21 @@ describe('useToggle', () => {
 
   it('default result with initial value', () => {
     const result = useToggle(true)
-    const [ value, toggle ] = result
+    const [value, toggle] = result
 
     expect(isRef(value)).toBe(true)
     expect(toValue(value)).toBe(true)
   })
 
   it('should toggle', () => {
-    const [ value, toggle ] = useToggle()
+    const [value, toggle] = useToggle()
     expect(toggle()).toBe(true)
     expect(toggle()).toBe(false)
     expect(toValue(value)).toBe(false)
   })
 
   it('should receive toggle param', () => {
-    const [ value, toggle ] = useToggle()
+    const [value, toggle] = useToggle()
     expect(toggle(true)).toBe(true)
     expect(toValue(value)).toBe(true)
   })
@@ -56,7 +56,7 @@ describe('useToggle', () => {
     expect(toggle()).toBe('ON')
 
     const plainStatus = 'ON'
-    const [ value, plainToggle] = useToggle(plainStatus, {
+    const [value, plainToggle] = useToggle(plainStatus, {
       truthyValue: 'ON',
       falsyValue: 'OFF'
     })

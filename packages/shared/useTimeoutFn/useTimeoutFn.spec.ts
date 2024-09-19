@@ -1,7 +1,7 @@
-import { describe, expect, it, vi } from "vitest";
-import { ref } from "vue";
-import { useTimeoutFn } from ".";
-import { promiseTimeout } from "../utils";
+import { describe, expect, it, vi } from 'vitest'
+import { ref } from 'vue'
+import { useTimeoutFn } from '.'
+import { promiseTimeout } from '../utils'
 
 describe('useTimeoutFn', () => {
   it('should work', async () => {
