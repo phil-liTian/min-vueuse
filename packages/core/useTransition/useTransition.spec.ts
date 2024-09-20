@@ -1,7 +1,5 @@
-import { describe, it } from "vitest";
+import { describe, it } from 'vitest'
 
 describe('useTransition', () => {
-  it('transition between numbers', () => {
-
-  })
+  it('transition between numbers', () => {})
 })
