@@ -106,6 +106,7 @@ export function useEventListener(...args: any[]) {
     () => [unRefElement<any>(target), toValue(options)],
     ([el]) => {
       cleanup()
+
       if (!el) return
       cleanUps.push(
         ...(events as string[]).flatMap((event) => {

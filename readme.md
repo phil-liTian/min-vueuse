@@ -58,7 +58,8 @@
 53. useSessionStorage // 创建一个sessionStorage的ref, useStorage方法storage方式使用sessionStorage
 54. useStorageSync // 支持异步方式的useStorage
 55. useAnimate // 使用el.animation实现动画, 结合useRafFn实现返回一个可Pausable的对象
-56. useDraggable // 实现可拖拽的元素, handle可指定可拖拽的元素，默认是target；可实现在container内部进行拖拽
+56. useDraggable // 实现可拖拽的元素, handle可指定可拖拽的元素，默认是target；可实现在container内部进行拖拽;通过控制pointerEvent的buttons 0:左键 2:右键 4: 中键可激活拖拽事件
+57. onLongPress // 长按激活handle事件, delay可设置延时激活的时间。通过记录鼠标点击时的位置相交move时的鼠标位置，如果偏差大于options.distanceThreshold则认为移动了，否则触发长按事件
 ```
 
 #### 已实现的components有:
@@ -73,7 +74,8 @@
 8. UseGeolocation // 获取当前地理位置
 9. UseIdle // 监听用户是否处于活动状态
 10. UsePageLeave
-11. useDraggable
+11. UseDraggable
+12. UseOnLongPress
 ```
 
 #### 已实现的自定义指令
@@ -81,6 +83,7 @@
 1. vOnClickOutside
 2. vOnKeyStroke
 3. vCopy
+4. vOnLongPress
 ```
 
 #### math

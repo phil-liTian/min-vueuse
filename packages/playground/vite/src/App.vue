@@ -54,10 +54,11 @@
     <useClamp />
     <useMath /> -->
 
-    <!-- <h4>sensor</h4>
-    <onClickOutside />
+    <h4>sensor</h4>
+    <!-- <onClickOutside />
     <onKeyStroke />
     <onStartTyping /> -->
+    <onLongPress />
 
     <!-- <h4>watch</h4>
     <whenever />
@@ -139,7 +140,7 @@
   // sensor
   import onClickOutside from "./sensor-demo/onClickOutside.vue";
   import onKeyStroke from "./sensor-demo/onKeyStroke.vue";
-  import useLongPress from "./sensor-demo/useLongPress.vue";
+  import onLongPress from "./sensor-demo/onLongPress.vue";
   import onStartTyping from "./sensor-demo/onStartTyping.vue";
 
   // watch
