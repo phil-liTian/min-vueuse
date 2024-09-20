@@ -58,10 +58,10 @@
 53. useSessionStorage // 创建一个sessionStorage的ref, useStorage方法storage方式使用sessionStorage
 54. useStorageSync // 支持异步方式的useStorage
 55. useAnimate // 使用el.animation实现动画, 结合useRafFn实现返回一个可Pausable的对象
+56. useDraggable // 实现可拖拽的元素, handle可指定可拖拽的元素，默认是target；可实现在container内部进行拖拽
 ```
 
 #### 已实现的components有:
-
 ```js
 1. UseMouse
 2. OnClickOutside
@@ -73,10 +73,10 @@
 8. UseGeolocation // 获取当前地理位置
 9. UseIdle // 监听用户是否处于活动状态
 10. UsePageLeave
+11. useDraggable
 ```
 
 #### 已实现的自定义指令
-
 ```js
 1. vOnClickOutside
 2. vOnKeyStroke
@@ -84,7 +84,6 @@
 ```
 
 #### math
-
 ```js
 1. useMax
 2. useMin
@@ -118,7 +117,6 @@
 ```
 
 #### 工具方法总结
-
 ```js
 1. tryOnScopeDispose // 清除effectScope中的副作用
 2. toValue // 将ref对象或者函数转化为value
@@ -127,7 +125,6 @@
 ```
 
 #### 处理时间格式
-
 ```js
 1. useDateFormat // 实现dayjs中时间格式化功能
 2. useTimeAgo // 获取某个时间距另一时间的间隔 返回Pausable对象 可中断、可恢复
@@ -140,7 +137,6 @@
 
 
 #### watch 监视
-
 ```js
 1. whenever // 当监听属性为true时 触发回调函数
 2. watchIgnore

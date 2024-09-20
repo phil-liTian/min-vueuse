@@ -35,9 +35,9 @@
     <useIdle />
     <usePageLeave /> 
     <useStorage />
-    <useAnimate /> -->
+    <useAnimate />
+    <useDraggable />  -->
     <useTransition />
-    <useDraggable />
 
 
 
