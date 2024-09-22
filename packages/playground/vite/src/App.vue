@@ -57,8 +57,12 @@
     <h4>sensor</h4>
     <!-- <onClickOutside />
     <onKeyStroke />
-    <onStartTyping /> -->
+    <onStartTyping />
     <onLongPress />
+    <useTextSelect />
+    <useNavigatorLanguage />
+    <useElementHover /> -->
+    <useFocus />
 
     <!-- <h4>watch</h4>
     <whenever />
@@ -121,6 +125,9 @@
   import useAnimate from './core-demo/useAnimate.vue'
   import useTransition from "./core-demo/useTransition.vue";
   import useDraggable from "./core-demo/useDraggable.vue";
+  import useNavigatorLanguage from "./core-demo/useNavigatorLanguage.vue";
+  import useElementHover from "./core-demo/useElementHover.vue";
+  import useFocus from "./core-demo/useFocus.vue";
 
   // 动画
   import useRafFn from "./core-demo/useRafFn.vue";
@@ -142,6 +149,7 @@
   import onKeyStroke from "./sensor-demo/onKeyStroke.vue";
   import onLongPress from "./sensor-demo/onLongPress.vue";
   import onStartTyping from "./sensor-demo/onStartTyping.vue";
+  import useTextSelect from "./sensor-demo/useTextSelect.vue";
 
   // watch
   import whenever from "./watch-demo/whenever.vue";

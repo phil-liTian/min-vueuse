@@ -1,20 +1,10 @@
 useNavigatorLanguage
 useElementHover
-8. useArrayMap
-9. useArrayReduce
-10. useArraySome
-11. useArrayUnique
-12. useSorted
+useFocus
+usePointer
+usePointerLock
+usePointerSwipe
 
-动画
-1. useAnimate
-2. useTransition
-2. useDraggable
-
-3. useScroll
-useScrollLock
-4. useElementVisibility
-3. useInfiniteScroll
 
 传感器
 6. useDeviceMotion
@@ -22,4 +12,53 @@ useScrollLock
 8. useDevicePixelRatio
 9. useDevicesList
 10. useDisplayMedia
+useParallax
+useSpeechSynthesis
+useSpeechRecognition
+useSwipe
+useUserMedia
 
+
+useElementByPoint
+useFocusWithin
+useKeyModifer
+useMagicKeys
+useMousePressed
+
+
+1. useScroll
+2. useScrollLock
+3. useElementVisibility
+4. useInfiniteScroll
+
+1. useArrayMap
+2. useArrayReduce
+3. useArraySome
+4. useArrayUnique
+5. useSorted
+
+1. computedAsync
+2. computedEager
+3. computedWithControl
+
+1. extendRef
+2. refAutoReset
+3. refDefault
+4. refWithControl
+5. syncRef
+6. syncRefs
+7. toRef
+8. toRefs
+
+1. reactify
+2. reactiveComputed
+3. reactifyObject
+4. reactiveOmit
+5. reactivePick
+6. toReactive
+
+1. createEventHook
+2. createUnrefFn
+3. isDefined
+4. makeDestructurable
+5. useAsyncQueue

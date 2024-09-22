@@ -59,7 +59,12 @@
 54. useStorageSync // 支持异步方式的useStorage
 55. useAnimate // 使用el.animation实现动画, 结合useRafFn实现返回一个可Pausable的对象
 56. useDraggable // 实现可拖拽的元素, handle可指定可拖拽的元素，默认是target；可实现在container内部进行拖拽;通过控制pointerEvent的buttons 0:左键 2:右键 4: 中键可激活拖拽事件
-57. onLongPress // 长按激活handle事件, delay可设置延时激活的时间。通过记录鼠标点击时的位置相交move时的鼠标位置，如果偏差大于options.distanceThreshold则认为移动了，否则触发长按事件
+57. onLongPress // 长按激活handle事件, delay可设置延时激活的时间。通过记录鼠标点击时的位置相较move时的鼠标位置，如果偏差大于options.distanceThreshold则认为移动了，否则触发长按事件
+58. useTransition // 对于数字或者数字数组的输入, 可动态输出一个数字或者数组，可由transition指定动态输出的线性关系,内置常见贝赛尔曲线(TransitionPresets)，也可自定义曲线函数, 本质上还是值的转换, 可通过abort函数实现动画中断逻辑
+59. useTextSelection //返回window.getSelection()的值 通过toString可获取当前选中的值
+60. useNavigatorLanguage // 返回浏览器当前使用的语言
+61. useElementHover // 通过mouseenter和mouseleave动态返回元素的悬停状态, 通过参数可控制延时返回这个状态
+62. useFocus // 自动聚焦某个元素, 通过监听target的focus和blur事件实现
 ```
 
 #### 已实现的components有:
@@ -84,6 +89,7 @@
 2. vOnKeyStroke
 3. vCopy
 4. vOnLongPress
+5. vElementHover
 ```
 
 #### math
