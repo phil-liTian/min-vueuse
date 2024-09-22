@@ -61,8 +61,12 @@
     <onLongPress />
     <useTextSelect />
     <useNavigatorLanguage />
-    <useElementHover /> -->
+    <useElementHover />
     <useFocus />
+    <useActiveElement />
+    <useFocusWithin />
+    <useKeyModifier /> -->
+    <useMagicKeys />
 
     <!-- <h4>watch</h4>
     <whenever />
@@ -128,6 +132,10 @@
   import useNavigatorLanguage from "./core-demo/useNavigatorLanguage.vue";
   import useElementHover from "./core-demo/useElementHover.vue";
   import useFocus from "./core-demo/useFocus.vue";
+  import useActiveElement from "./core-demo/useActiveElement.vue";
+  import useFocusWithin from "./core-demo/useFocusWithin.vue";
+  import useKeyModifier from "./core-demo/useKeyModifier.vue";
+  import useMagicKeys from "./core-demo/useMagicKeys.vue";
 
   // 动画
   import useRafFn from "./core-demo/useRafFn.vue";

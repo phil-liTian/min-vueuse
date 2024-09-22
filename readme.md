@@ -65,6 +65,11 @@
 60. useNavigatorLanguage // 返回浏览器当前使用的语言
 61. useElementHover // 通过mouseenter和mouseleave动态返回元素的悬停状态, 通过参数可控制延时返回这个状态
 62. useFocus // 自动聚焦某个元素, 通过监听target的focus和blur事件实现
+63. useActiveElement // 获取当前激活的元素，可指定影子dom 动态监听focus/blur事件 返回document?.activeElement; 上下文中有元素focus时, 会动态返回相应的activeElement TODO: 移除dom元素后 重置activeElement
+64. useMutationObserver // 
+65. useFocusWithin // 配合useActiveElement的contains方法 判断focus的元素 是否在activeElement内 tabIndex
+66. useKeyModifier // 通过event.getModifierState(modifier) 获取当前modifier的激活状态
+67. useMagicKeys // 通过proxy反向代理refs对象, 在keydown是将refs中的prop置为true, 反之将refs中prop置为false
 ```
 
 #### 已实现的components有:
@@ -81,6 +86,7 @@
 10. UsePageLeave
 11. UseDraggable
 12. UseOnLongPress
+13. UseActiveElement
 ```
 
 #### 已实现的自定义指令
@@ -158,4 +164,5 @@
 1. promiseTimeout // 延时执行任务
 2. mount
 3. useSetup
+4. retry // 错误重试
 ```

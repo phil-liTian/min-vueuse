@@ -98,7 +98,6 @@ export function useEventListener(...args: any[]) {
 
   const register = (el, event, listener, options) => {
     el.addEventListener(event, listener, options)
-
     return () => el.removeEventListener(event, listener, options)
   }
 

@@ -1,4 +1,3 @@
-
 export interface ConfigableDocument {
   document?: Document
 }
@@ -11,6 +10,9 @@ export interface ConfigableNavigator {
   navigator?: Navigator
 }
 
+export interface ConfigableDocumentOrShadowRoot {
+  document?: DocumentOrShadowRoot
+}
 
 export const defaultWindow = typeof window !== 'undefined' ? window : null
 export const defaultDocument = typeof document !== 'undefined' ? document : null
