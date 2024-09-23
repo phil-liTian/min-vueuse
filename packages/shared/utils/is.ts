@@ -1,6 +1,8 @@
 export const noop = () => {}
 
 export const isClient = typeof window !== 'undefined' && typeof document !== 'undefined'
+
+export const notNullish = <T = any>(val?: T | null | undefined) => val != null
 export const isDef = <T = any>(val?: T) => typeof val !== 'undefined'
 
 const toString = Object.prototype.toString

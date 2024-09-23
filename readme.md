@@ -66,10 +66,13 @@
 61. useElementHover // 通过mouseenter和mouseleave动态返回元素的悬停状态, 通过参数可控制延时返回这个状态
 62. useFocus // 自动聚焦某个元素, 通过监听target的focus和blur事件实现
 63. useActiveElement // 获取当前激活的元素，可指定影子dom 动态监听focus/blur事件 返回document?.activeElement; 上下文中有元素focus时, 会动态返回相应的activeElement TODO: 移除dom元素后 重置activeElement
-64. useMutationObserver // 
+64. useMutationObserver // 通过 MutationObserver 监听DOM元素是否被修改，可一次实现对多个target元素进行监听； 监听元素属性修改，节点内容修改，节点添加和删除。非阻塞异步检测，可实现批量处理变化。
 65. useFocusWithin // 配合useActiveElement的contains方法 判断focus的元素 是否在activeElement内 tabIndex
 66. useKeyModifier // 通过event.getModifierState(modifier) 获取当前modifier的激活状态
-67. useMagicKeys // 通过proxy反向代理refs对象, 在keydown是将refs中的prop置为true, 反之将refs中prop置为false
+67. useMagicKeys // 通过proxy反向代理refs对象, 在keydown时将refs中的prop置为true, 反之将refs中prop置为false,通过_连接的字符串均激活亦支持
+68. useIntersectionObserver // 通过IntersectionObserver 监听DOM元素是否在视窗内, 与useMutationObserver类似, 可实现图像和资源的延迟加载(懒加载)、性能优化。实现无限滚动，自动加载更多内容。
+69. useScroll // 监听scroll滚动事件，返回滚动方向，及滚动到达状态，是否到达最上下左右边界。通过setter可触发scrollTo事件, 设置滚动位置, 可通过behavior控制滚动方式。
+70. useElementVisibility // 返回当前监听元素是否在scrollTarget内
 ```
 
 #### 已实现的components有:
@@ -87,6 +90,7 @@
 11. UseDraggable
 12. UseOnLongPress
 13. UseActiveElement
+14. UseElementVisibility
 ```
 
 #### 已实现的自定义指令
@@ -96,6 +100,8 @@
 3. vCopy
 4. vOnLongPress
 5. vElementHover
+6. vScroll
+7. vElementVisibility
 ```
 
 #### math

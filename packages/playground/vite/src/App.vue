@@ -36,8 +36,8 @@
     <usePageLeave /> 
     <useStorage />
     <useAnimate />
-    <useDraggable />  -->
-    <useTransition />
+    <useDraggable />  
+    <useTransition /> -->
 
 
 
@@ -65,8 +65,13 @@
     <useFocus />
     <useActiveElement />
     <useFocusWithin />
-    <useKeyModifier /> -->
+    <useKeyModifier />
     <useMagicKeys />
+    <useMutationObserver />
+    <useScroll /> -->
+    <useInfiniteScroll />
+    <useIntersectionObserver />
+    <useElementVisibility />
 
     <!-- <h4>watch</h4>
     <whenever />
@@ -136,6 +141,11 @@
   import useFocusWithin from "./core-demo/useFocusWithin.vue";
   import useKeyModifier from "./core-demo/useKeyModifier.vue";
   import useMagicKeys from "./core-demo/useMagicKeys.vue";
+  import useMutationObserver from "./core-demo/useMutationObserver.vue";
+  import useScroll from "./core-demo/useScroll.vue";
+  import useInfiniteScroll from "./core-demo/useInfiniteScroll.vue";
+  import useIntersectionObserver from "./core-demo/useIntersectionObserver.vue";
+  import useElementVisibility from './core-demo/useElementVisibility.vue'
 
   // 动画
   import useRafFn from "./core-demo/useRafFn.vue";

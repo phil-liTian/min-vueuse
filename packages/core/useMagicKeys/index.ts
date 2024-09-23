@@ -1,20 +1,37 @@
-import { reactive, ref } from 'vue'
+import { computed, reactive, ref } from 'vue'
 import { useEventListener } from '../useEventListener'
 import { MaybeElementRef } from '../unrefElement'
 import { defaultWindow } from '../_configurable'
-import { MaybeRefOrGetter, toValue } from '@mini-vueuse/shared'
+import { MaybeRefOrGetter, noop, toValue } from '@mini-vueuse/shared'
+import { DefaultMagicKeysAliasMap } from './aliasMap'
 
 export interface UseMagicKeysOptions<Reactive extends boolean> {
   reactive?: Reactive
   target?: MaybeRefOrGetter<EventTarget>
+  onEventFired?: (e: KeyboardEvent) => void | boolean
+  aliasMap?: Record<string, string>
 }
 
 export function useMagicKeys(options: UseMagicKeysOptions<boolean> = {}): any {
-  const { reactive: useReactive = false, target = defaultWindow } = options
+  const {
+    reactive: useReactive = false,
+    target = defaultWindow,
+    onEventFired = noop,
+    aliasMap = DefaultMagicKeysAliasMap
+  } = options
 
-  const current = reactive(new Set())
+  const current = reactive(new Set<string>())
   const obj = {
     current
+  }
+  const refs: Record<string, any> = useReactive ? reactive(obj) : obj
+  const usedKeys = new Set<string>()
+
+  function reset() {
+    current.clear()
+    for (const key of usedKeys) {
+      setRefs(key, false)
+    }
   }
 
   function setRefs(key: string, value: boolean) {
@@ -43,19 +60,23 @@ export function useMagicKeys(options: UseMagicKeysOptions<boolean> = {}): any {
 
     // 批量处理refs中props的状态
     for (const key of values) {
+      usedKeys.add(key)
       setRefs(key, value)
     }
   }
 
-  const refs: Record<string, any> = useReactive ? reactive(obj) : obj
-
   useEventListener(target, 'keydown', (e: KeyboardEvent) => {
     updateRefs(e, true)
+    return onEventFired(e)
   })
 
   useEventListener(target, 'keyup', (e: KeyboardEvent) => {
     updateRefs(e, false)
+    return onEventFired(e)
   })
+
+  useEventListener('blur', reset)
+  useEventListener('focus', reset)
 
   const proxy = new Proxy(refs, {
     get(target, prop, rec) {
@@ -63,13 +84,14 @@ export function useMagicKeys(options: UseMagicKeysOptions<boolean> = {}): any {
 
       prop = prop.toLowerCase()
       if (!(prop in refs)) {
-        console.log('prop', prop)
+        if (aliasMap[prop]) prop = aliasMap[prop] as string
         // 初始化 将ref的props都设置成false
-        refs[prop] = ref(false)
-        // if ( ) {
-        // } else {
-        //   ref
-        // }
+        if (/[+_-]/.test(prop)) {
+          const keys = prop.split(/[+_-]/g).map((i) => i.trim())
+          refs[prop] = computed(() => keys.every((key) => toValue(proxy[key])))
+        } else {
+          refs[prop] = ref(false)
+        }
       }
 
       const r = Reflect.get(target, prop, rec)
