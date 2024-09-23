@@ -1,12 +1,9 @@
 useActiveElement
 useFocusWithin
 useKeyModifer
-
 usePointer
 usePointerLock
 usePointerSwipe
-
-121
 
 传感器
 6. useDeviceMotion
@@ -23,8 +20,6 @@ useElementByPoint
 useMousePressed
 
 2. useScrollLock
-4. useInfiniteScroll
-
 1. useArrayMap
 2. useArrayReduce
 3. useArraySome

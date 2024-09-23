@@ -70,8 +70,8 @@
     <useMutationObserver />
     <useScroll /> -->
     <useInfiniteScroll />
-    <useIntersectionObserver />
-    <useElementVisibility />
+    <!-- <useIntersectionObserver />
+    <useElementVisibility /> -->
 
     <!-- <h4>watch</h4>
     <whenever />

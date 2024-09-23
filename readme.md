@@ -73,6 +73,7 @@
 68. useIntersectionObserver // 通过IntersectionObserver 监听DOM元素是否在视窗内, 与useMutationObserver类似, 可实现图像和资源的延迟加载(懒加载)、性能优化。实现无限滚动，自动加载更多内容。
 69. useScroll // 监听scroll滚动事件，返回滚动方向，及滚动到达状态，是否到达最上下左右边界。通过setter可触发scrollTo事件, 设置滚动位置, 可通过behavior控制滚动方式。
 70. useElementVisibility // 返回当前监听元素是否在scrollTarget内
+71. useInfiniteScroll // 监听滚动到底部事件, 实现可无限滚动的列表，触底可加载更多, 结合useScroll可实现监听是否触底, useElementVisibility监听dom元素是否可见，不可见时可下拉加载更多。distance属性 由scroll的offset实现，可实现有条件的监听触底事件(距离distance可认为已触底)
 ```
 
 #### 已实现的components有:
@@ -102,6 +103,7 @@
 5. vElementHover
 6. vScroll
 7. vElementVisibility
+8. vInfiniteScroll
 ```
 
 #### math
