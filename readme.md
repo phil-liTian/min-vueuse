@@ -74,6 +74,7 @@
 69. useScroll // 监听scroll滚动事件，返回滚动方向，及滚动到达状态，是否到达最上下左右边界。通过setter可触发scrollTo事件, 设置滚动位置, 可通过behavior控制滚动方式。
 70. useElementVisibility // 返回当前监听元素是否在scrollTarget内
 71. useInfiniteScroll // 监听滚动到底部事件, 实现可无限滚动的列表，触底可加载更多, 结合useScroll可实现监听是否触底, useElementVisibility监听dom元素是否可见，不可见时可下拉加载更多。distance属性 由scroll的offset实现，可实现有条件的监听触底事件(距离distance可认为已触底)
+72. useScrollLock // 通过控制target的style.overflow实现锁定滚动
 ```
 
 #### 已实现的components有:
@@ -137,6 +138,11 @@
 6. useArrayFindLast // 处理响应式数组, 从后面开始找 返回找到的数组元素
 7. useArrayIncludes // 返回computedRef<boolean> 判断数组是否包含某元素, 可以指定comparator
 8. useArrayJoin // 返回Compunted<string> 使用separator拼接字符串
+9. useArrayMap // 处理响应式数组, 返回computedRef<U>
+10. useArrayReduce // 处理响应式数组, 可自定义reducer函数
+11. useArraySome // 处理响应式数组, 返回computedRef<boolean>
+12. useArrayUnique // 处理响应式数组, 返回元素唯一的数组。简单数据类型使用Set数据类型，复杂数据类型使用reduce api实现自定义comparer函数
+13. useSorted // 处理响应式数组, 返回排序后的数组，可自定义comparer和sort函数
 ```
 
 #### 工具方法总结

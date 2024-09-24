@@ -25,6 +25,8 @@ export function useToggle(initialValue: MaybeRef<boolean> = false, options: UseT
   const valueIsRef = isRef(initialValue)
   const _value = ref(initialValue) as Ref<boolean>
   function toggle(value?: boolean) {
+    console.log('value', value)
+
     // 因为value本身就是boolean类型的 可以使用arguments判断是否存在参数
     if (arguments.length) {
       // 非空断言

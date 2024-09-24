@@ -14,15 +14,20 @@
     <div class="scroll-inner "></div>
   </div>
 
+  <button @click="toggleLock()">toggle</button>{{ isLocked }}
+
 </template>
   
 <script lang='ts' setup>
-  import { useScroll } from '@mini-vueuse/core'
+  import { useScroll, useScrollLock } from '@mini-vueuse/core'
   import { vScroll } from '@mini-vueuse/components'
   import { ref } from 'vue';
+  import { useToggle } from '@mini-vueuse/shared';
   const scrollRef = ref(null)
   const { x, isScrolling, directions, arrivedState } = useScroll(scrollRef, { behavior: 'smooth' })
 
+  const isLocked = useScrollLock(scrollRef)
+  const toggleLock = useToggle(isLocked)
   const handleScroll = state => {
     const { isScrolling } = state
     console.log('isScrolling', isScrolling.value);

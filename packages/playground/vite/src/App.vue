@@ -68,10 +68,10 @@
     <useKeyModifier />
     <useMagicKeys />
     <useMutationObserver />
-    <useScroll /> -->
     <useInfiniteScroll />
-    <!-- <useIntersectionObserver />
+    <useIntersectionObserver />
     <useElementVisibility /> -->
+    <useScroll />
 
     <!-- <h4>watch</h4>
     <whenever />
@@ -91,6 +91,7 @@
     <!-- <h4>array</h4>
     <useArrayEvery />
     <useArrayDifference /> -->
+    <useArray />
 
     <!-- <h4>browser</h4>
     <useOnline /> -->
@@ -184,6 +185,7 @@
   // array
   import useArrayEvery from "./array-demo/useArrayEvery.vue";
   import useArrayDifference from "./array-demo/useArrayDifference.vue";
+  import useArray from "./array-demo/useArray.vue";
 
   // browser
   import useOnline from './browser-demo/useOnline.vue'
