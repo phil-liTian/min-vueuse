@@ -75,6 +75,7 @@
 70. useElementVisibility // 返回当前监听元素是否在scrollTarget内
 71. useInfiniteScroll // 监听滚动到底部事件, 实现可无限滚动的列表，触底可加载更多, 结合useScroll可实现监听是否触底, useElementVisibility监听dom元素是否可见，不可见时可下拉加载更多。distance属性 由scroll的offset实现，可实现有条件的监听触底事件(距离distance可认为已触底)
 72. useScrollLock // 通过控制target的style.overflow实现锁定滚动
+73. toReactive // 将ref或者普通object转化成reactive类型的响应式数据
 ```
 
 #### 已实现的components有:

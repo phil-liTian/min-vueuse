@@ -54,8 +54,8 @@
     <useClamp />
     <useMath /> -->
 
-    <h4>sensor</h4>
-    <!-- <onClickOutside />
+    <!-- <h4>sensor</h4>
+    <onClickOutside />
     <onKeyStroke />
     <onStartTyping />
     <onLongPress />
@@ -70,8 +70,8 @@
     <useMutationObserver />
     <useInfiniteScroll />
     <useIntersectionObserver />
-    <useElementVisibility /> -->
-    <useScroll />
+    <useElementVisibility />
+    <useScroll /> -->
 
     <!-- <h4>watch</h4>
     <whenever />
@@ -90,11 +90,17 @@
 
     <!-- <h4>array</h4>
     <useArrayEvery />
-    <useArrayDifference /> -->
-    <useArray />
+    <useArrayDifference />
+    <useArray /> -->
 
     <!-- <h4>browser</h4>
     <useOnline /> -->
+
+
+    <h4>reactivity</h4>
+    <computedAsync />
+    <computedEager />
+    <reactive />
 
   </div>
 </template>
@@ -189,6 +195,11 @@
 
   // browser
   import useOnline from './browser-demo/useOnline.vue'
+
+  // reactivity
+  import computedAsync from "./reactivity-demo/computedAsync.vue";
+  import computedEager from "./reactivity-demo/computedEager.vue";
+  import reactive from './reactivity-demo/reactive.vue'
 </script>
   
 <style lang='less' scoped>

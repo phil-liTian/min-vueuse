@@ -16,7 +16,6 @@ useUserMedia
 useElementByPoint
 useMousePressed
 
-2. useScrollLock
 usePointer
 usePointerLock
 usePointerSwipe
