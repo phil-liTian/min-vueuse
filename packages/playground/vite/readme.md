@@ -24,14 +24,7 @@ usePointerSwipe
 2. computedEager
 3. computedWithControl
 
-1. extendRef
-2. refAutoReset
-3. refDefault
 4. refWithControl
-5. syncRef
-6. syncRefs
-7. toRef
-8. toRefs
 
 1. reactify
 2. reactiveComputed

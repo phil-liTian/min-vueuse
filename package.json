@@ -17,7 +17,8 @@
     "jsdom": "^25.0.0",
     "vue": "catalog:",
     "unocss": "catalog:",
-    "vitest": "catalog:"
+    "vitest": "catalog:",
+    "vite": "catalog:"
   },
   "keywords": [],
   "author": "",

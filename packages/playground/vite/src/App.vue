@@ -101,6 +101,7 @@
     <computedAsync />
     <computedEager />
     <reactive />
+    <ref />
 
   </div>
 </template>
@@ -200,6 +201,7 @@
   import computedAsync from "./reactivity-demo/computedAsync.vue";
   import computedEager from "./reactivity-demo/computedEager.vue";
   import reactive from './reactivity-demo/reactive.vue'
+  import ref from './reactivity-demo/ref.vue'
 </script>
   
 <style lang='less' scoped>

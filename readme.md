@@ -173,6 +173,17 @@
 3. watchWithFilter
 ```
 
+#### 响应式
+```js
+1. extendRef  // 给ref扩充属性, .value仍可直接访问到, 扩充的非ref对象在模板中无法直接访问到
+2. refAutoReset // 封装ref 使其在afterMs之后, 重置回初始值
+3. refDefault // 给ref一个默认值
+4. syncRef // 同步left、right的ref值, 可实现当left发生变化时，rights 也会发生变化, 反之亦然。也可通过director来控制变化方向
+5. syncRefs // 将source同步到targets中， 使用watch监听实现
+6. toRef // 对function进行单独处理 结合customRef实现
+7. toRefs // 将objects to refs, 处理vue中ref无法处理 plain object的情况。结合customRef实现
+```
+
 #### 使用vitest进行测试
 
 ```js
